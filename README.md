@@ -136,7 +136,7 @@ Every lab session is documented with:
 ## 🔗 Author
 
 aayush  
-Aspiring Cybersecurity Professional | Network Security Enthusiast  
+Aspiring Cybersecurity student | Network Security Enthusiast  
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/yourprofile)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/yourusername)
