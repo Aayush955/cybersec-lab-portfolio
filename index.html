@@ -3,1343 +3,1199 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Aayush955 — Cybersecurity Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=IBM+Plex+Mono:wght@300;400;600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>Home Security Lab — Cybersecurity Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=IBM+Plex+Mono:wght@300;400;600&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-:root {
-  --bg:       #060a06;
-  --bg1:      #0c110c;
-  --bg2:      #111811;
-  --bg3:      #182018;
-  --border:   #1e2e1e;
-  --green:    #39ff14;
-  --lime:     #7fff00;
-  --cyan:     #00e5ff;
-  --orange:   #ff8c00;
-  --red:      #ff2244;
-  --purple:   #b44fff;
-  --yellow:   #ffe033;
-  --text:     #b8cfb8;
-  --texthi:   #e8f4e8;
-  --dim:      #3a5a3a;
-  --mono:     'IBM Plex Mono', monospace;
-  --head:     'Orbitron', sans-serif;
-  --body:     'Barlow', sans-serif;
+:root{
+  --bg:#060a06;--bg1:#0c110c;--bg2:#111811;--bg3:#182018;
+  --border:#1e2e1e;--border2:#243424;
+  --green:#39ff14;--lime:#7fff00;--cyan:#00e5ff;
+  --orange:#ff8c00;--red:#ff2244;--purple:#b44fff;
+  --yellow:#ffe033;--blue:#44aaff;
+  --text:#b8cfb8;--texthi:#e8f4e8;--dim:#3a5a3a;
+  --mono:'IBM Plex Mono',monospace;
+  --head:'Orbitron',sans-serif;
+  --body:'Barlow',sans-serif;
 }
-
 *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
-
-/* ── SCROLLBAR ── */
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px}
-
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:var(--body);
-  font-size:15px;
-  line-height:1.7;
-  overflow-x:hidden;
-}
-
-/* ── GRID BACKGROUND ── */
-body::before{
-  content:'';
-  position:fixed;inset:0;
-  background-image:
-    linear-gradient(rgba(57,255,20,.025) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(57,255,20,.025) 1px,transparent 1px);
-  background-size:48px 48px;
-  pointer-events:none;z-index:0;
-}
-
-/* ── NOISE OVERLAY ── */
-body::after{
-  content:'';
-  position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:0;opacity:.4;
-}
-
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.7;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(57,255,20,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(57,255,20,.02) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
 .site{position:relative;z-index:1}
 
-/* ══════════════════════════════════════════
-   NAV
-══════════════════════════════════════════ */
-nav{
-  position:fixed;top:0;left:0;right:0;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 40px;height:60px;
-  background:rgba(6,10,6,.92);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(12px);
-  z-index:1000;
-}
-.nav-logo{
-  font-family:var(--head);
-  font-size:14px;
-  color:var(--green);
-  letter-spacing:3px;
-  text-decoration:none;
-}
-.nav-logo span{color:var(--texthi)}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{
-  font-family:var(--mono);
-  font-size:11px;
-  color:var(--dim);
-  text-decoration:none;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  transition:color .2s;
-  position:relative;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-4px;left:0;right:0;
-  height:1px;background:var(--green);
-  transform:scaleX(0);transition:transform .2s;
-}
-.nav-links a:hover{color:var(--green)}
-.nav-links a:hover::after{transform:scaleX(1)}
-.nav-status{
-  font-family:var(--mono);font-size:10px;
-  color:var(--green);letter-spacing:2px;
-  display:flex;align-items:center;gap:8px;
-}
-.status-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--green);
-  animation:blink 1.4s ease-in-out infinite;
-}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:56px;background:rgba(6,10,6,.96);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);z-index:1000}
+.nav-logo{font-family:var(--head);font-size:11px;color:var(--green);letter-spacing:2px;text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-logo-icon{width:26px;height:26px;border:1px solid var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:9px;color:var(--dim);text-decoration:none;letter-spacing:2px;text-transform:uppercase;transition:color .2s;border-bottom:1px solid transparent;padding-bottom:2px}
+.nav-links a:hover,.nav-links a.active{color:var(--green);border-bottom-color:var(--green)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-status{font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:2px;display:flex;align-items:center;gap:6px}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 1.4s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer}
+.hamburger span{width:20px;height:1px;background:var(--green);transition:all .3s}
+@media(max-width:900px){.nav-links{display:none}.hamburger{display:flex}}
+.mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(6,10,6,.98);border-bottom:1px solid var(--border);padding:16px 24px;z-index:999;flex-direction:column;gap:0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--mono);font-size:11px;color:var(--text);text-decoration:none;letter-spacing:2px;padding:11px 0;border-bottom:1px solid var(--border)}
+.mobile-menu a:last-child{border:none}
 
-/* ══════════════════════════════════════════
-   HERO
-══════════════════════════════════════════ */
-#hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:80px 40px 60px;
-  text-align:center;
-  position:relative;
-}
-.hero-tag{
-  font-family:var(--mono);font-size:11px;
-  color:var(--green);letter-spacing:4px;
-  border:1px solid rgba(57,255,20,.3);
-  padding:6px 18px;margin-bottom:32px;
-  display:inline-block;
-  animation:fadeUp .6s ease both;
-}
-.hero-name{
-  font-family:var(--head);
-  font-size:clamp(42px,9vw,96px);
-  font-weight:900;
-  color:var(--texthi);
-  letter-spacing:-2px;
-  line-height:1;
-  margin-bottom:16px;
-  animation:fadeUp .6s .1s ease both;
-}
-.hero-name em{
-  color:var(--green);
-  font-style:normal;
-  text-shadow:0 0 40px rgba(57,255,20,.4);
-}
-.hero-title{
-  font-family:var(--mono);font-size:14px;
-  color:var(--cyan);letter-spacing:3px;
-  margin-bottom:24px;
-  animation:fadeUp .6s .2s ease both;
-}
-.hero-desc{
-  max-width:580px;font-size:16px;
-  color:var(--text);margin-bottom:48px;
-  animation:fadeUp .6s .3s ease both;
-}
-.hero-btns{
-  display:flex;gap:16px;flex-wrap:wrap;
-  justify-content:center;
-  animation:fadeUp .6s .4s ease both;
-}
-.btn{
-  font-family:var(--mono);font-size:12px;
-  letter-spacing:2px;text-transform:uppercase;
-  padding:12px 28px;border-radius:0;
-  text-decoration:none;cursor:pointer;
-  transition:all .2s;border:none;
-}
-.btn-primary{
-  background:var(--green);color:#000;
-  font-weight:600;
-}
-.btn-primary:hover{background:var(--lime);box-shadow:0 0 24px rgba(57,255,20,.4)}
-.btn-ghost{
-  background:transparent;color:var(--green);
-  border:1px solid var(--green);
-}
-.btn-ghost:hover{background:rgba(57,255,20,.08)}
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 28px 60px;text-align:center;position:relative;max-width:100%}
+.hero-eyebrow{font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:5px;border:1px solid rgba(57,255,20,.2);padding:5px 18px;margin-bottom:24px;display:inline-block;animation:fadeUp .5s ease both}
+.hero-h1{font-family:var(--head);font-size:clamp(34px,8vw,78px);font-weight:900;color:var(--texthi);line-height:1;letter-spacing:-2px;margin-bottom:6px;animation:fadeUp .5s .1s ease both}
+.hero-h1 em{color:var(--green);font-style:normal;display:block;text-shadow:0 0 50px rgba(57,255,20,.25)}
+.hero-sub{font-family:var(--mono);font-size:11px;color:var(--cyan);letter-spacing:3px;margin-bottom:18px;animation:fadeUp .5s .15s ease both}
+.hero-desc{max-width:520px;font-size:15px;color:var(--text);margin-bottom:36px;animation:fadeUp .5s .2s ease both;line-height:1.8}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;animation:fadeUp .5s .25s ease both;margin-bottom:48px}
+.btn{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:10px 24px;text-decoration:none;cursor:pointer;transition:all .2s;border:none;display:inline-flex;align-items:center;gap:7px}
+.btn-primary{background:var(--green);color:#000;font-weight:700}
+.btn-primary:hover{background:var(--lime);box-shadow:0 0 24px rgba(57,255,20,.3)}
+.btn-ghost{background:transparent;color:var(--green);border:1px solid var(--green)}
+.btn-ghost:hover{background:rgba(57,255,20,.06)}
+.hero-term{background:var(--bg1);border:1px solid var(--border);border-radius:6px;width:min(560px,100%);text-align:left;animation:fadeUp .5s .3s ease both;box-shadow:0 0 60px rgba(57,255,20,.05)}
+.term-bar{display:flex;align-items:center;gap:7px;padding:9px 13px;background:var(--bg2);border-bottom:1px solid var(--border);border-radius:6px 6px 0 0}
+.dot{width:9px;height:9px;border-radius:50%}.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+.term-label{font-family:var(--mono);font-size:9px;color:var(--dim);margin-left:5px;letter-spacing:1px}
+.term-body{padding:16px;font-family:var(--mono);font-size:11px;line-height:2.1;overflow-x:auto}
+.t-d{color:var(--dim)}.t-g{color:var(--green)}.t-c{color:var(--cyan)}.t-o{color:var(--orange)}.t-t{color:var(--text)}.t-r{color:var(--red)}.t-y{color:var(--yellow)}
+.cursor{display:inline-block;width:7px;height:12px;background:var(--green);vertical-align:middle;animation:cur .8s step-end infinite}
+@keyframes cur{0%,100%{opacity:1}50%{opacity:0}}
+.scroll-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:3px;display:flex;flex-direction:column;align-items:center;gap:7px;animation:fadeIn 1s 1s ease both}
+.scroll-line{width:1px;height:32px;background:linear-gradient(var(--green),transparent)}
 
-/* Animated terminal */
-.hero-terminal{
-  margin-top:64px;
-  background:var(--bg1);
-  border:1px solid var(--border);
-  border-radius:8px;
-  width:min(600px,100%);
-  text-align:left;
-  animation:fadeUp .6s .5s ease both;
-  box-shadow:0 0 60px rgba(57,255,20,.06);
-}
-.term-bar{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 16px;
-  background:var(--bg2);
-  border-bottom:1px solid var(--border);
-  border-radius:8px 8px 0 0;
-}
-.dot{width:11px;height:11px;border-radius:50%}
-.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
-.term-title{font-family:var(--mono);font-size:11px;color:var(--dim);margin-left:8px;letter-spacing:1px}
-.term-body{padding:20px 20px 16px;font-family:var(--mono);font-size:13px;line-height:2}
-.t-dim{color:var(--dim)}
-.t-green{color:var(--green)}
-.t-cyan{color:var(--cyan)}
-.t-orange{color:var(--orange)}
-.t-text{color:var(--text)}
-.cursor{
-  display:inline-block;width:8px;height:14px;
-  background:var(--green);vertical-align:middle;
-  animation:cursor-blink .8s step-end infinite;
-}
-@keyframes cursor-blink{0%,100%{opacity:1}50%{opacity:0}}
-
-/* Scroll indicator */
-.scroll-hint{
-  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
-  font-family:var(--mono);font-size:10px;color:var(--dim);
-  letter-spacing:3px;display:flex;flex-direction:column;align-items:center;gap:8px;
-  animation:fadeIn 1s 1s ease both;
-}
-.scroll-arrow{
-  width:1px;height:40px;background:linear-gradient(var(--green),transparent);
-  animation:scrollDown 1.5s ease-in-out infinite;
-}
-@keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-
-/* ══════════════════════════════════════════
-   SECTIONS
-══════════════════════════════════════════ */
-section{padding:100px 40px;max-width:1200px;margin:0 auto}
-.section-tag{
-  font-family:var(--mono);font-size:10px;
-  color:var(--green);letter-spacing:4px;
-  text-transform:uppercase;margin-bottom:12px;
-  display:flex;align-items:center;gap:12px;
-}
-.section-tag::before{content:'';flex:1;max-width:40px;height:1px;background:var(--green)}
-.section-title{
-  font-family:var(--head);font-size:clamp(28px,5vw,48px);
-  font-weight:700;color:var(--texthi);
-  letter-spacing:-1px;margin-bottom:16px;
-}
-.section-title span{color:var(--green)}
-.section-sub{color:var(--text);font-size:16px;max-width:600px;margin-bottom:56px}
-
-/* ══════════════════════════════════════════
-   STATS BAR
-══════════════════════════════════════════ */
-#stats{
-  padding:40px;
-  background:var(--bg1);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  max-width:100%;
-}
-.stats-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:32px;
-}
+/* STATS */
+.stats-bar{background:var(--bg1);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 28px;max-width:100%}
+.stats-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:20px}
 .stat-item{text-align:center}
-.stat-num{
-  font-family:var(--head);font-size:42px;
-  font-weight:900;color:var(--green);
-  display:block;
-  text-shadow:0 0 20px rgba(57,255,20,.3);
-}
-.stat-lbl{
-  font-family:var(--mono);font-size:10px;
-  color:var(--dim);letter-spacing:3px;
-  text-transform:uppercase;
-}
+.stat-n{font-family:var(--head);font-size:38px;font-weight:900;color:var(--green);display:block;text-shadow:0 0 14px rgba(57,255,20,.2)}
+.stat-l{font-family:var(--mono);font-size:8px;color:var(--dim);letter-spacing:3px;text-transform:uppercase;margin-top:4px}
 
-/* ══════════════════════════════════════════
-   ABOUT / OVERVIEW
-══════════════════════════════════════════ */
-.overview-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
-}
-@media(max-width:700px){.overview-grid{grid-template-columns:1fr}}
-.overview-card{
-  background:var(--bg1);
-  border:1px solid var(--border);
-  border-radius:4px;
-  padding:28px;
-  transition:border-color .2s,transform .2s;
-  position:relative;overflow:hidden;
-}
-.overview-card::before{
-  content:'';position:absolute;
-  top:0;left:0;right:0;height:2px;
-  background:var(--green);
-  transform:scaleX(0);transition:transform .3s;
-  transform-origin:left;
-}
-.overview-card:hover{border-color:var(--green);transform:translateY(-3px)}
-.overview-card:hover::before{transform:scaleX(1)}
-.oc-icon{font-size:28px;margin-bottom:12px;display:block}
-.oc-title{
-  font-family:var(--head);font-size:14px;
-  color:var(--texthi);letter-spacing:1px;
-  margin-bottom:8px;
-}
-.oc-text{font-size:14px;color:var(--text)}
+/* LAYOUT */
+.wrap{max-width:1080px;margin:0 auto;padding:80px 28px}
+.section-tag{font-family:var(--mono);font-size:9px;color:var(--green);letter-spacing:4px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.section-tag::before{content:'';width:28px;height:1px;background:var(--green)}
+.section-h{font-family:var(--head);font-size:clamp(24px,4vw,42px);font-weight:700;color:var(--texthi);letter-spacing:-1px;margin-bottom:10px}
+.section-h span{color:var(--green)}
+.section-p{color:var(--text);font-size:14px;max-width:560px;margin-bottom:40px;line-height:1.8}
+.card{background:var(--bg1);border:1px solid var(--border);border-radius:4px;transition:border-color .2s,transform .15s}
+.card:hover{border-color:rgba(57,255,20,.35);transform:translateY(-2px)}
 
-/* ══════════════════════════════════════════
-   LAB ARCHITECTURE
-══════════════════════════════════════════ */
-.arch-diagram{
-  background:var(--bg1);
-  border:1px solid var(--border);
-  border-radius:4px;
-  padding:48px;
-  font-family:var(--mono);
-  font-size:13px;
-  margin-bottom:40px;
-  position:relative;
-  overflow:hidden;
-}
-.arch-diagram::before{
-  content:'NETWORK TOPOLOGY';
-  position:absolute;top:16px;right:20px;
-  font-size:9px;letter-spacing:3px;
-  color:var(--dim);
-}
-.arch-row{
-  display:flex;align-items:center;
-  justify-content:center;gap:0;
-  margin:8px 0;
-  flex-wrap:wrap;
-}
-.arch-box{
-  border:1px solid;
-  padding:10px 20px;
-  border-radius:4px;
-  text-align:center;
-  position:relative;
-}
-.arch-arrow{
-  font-size:18px;margin:0 8px;
-  color:var(--dim);
-}
-.arch-label{
-  font-size:9px;letter-spacing:2px;
-  display:block;margin-top:3px;
-  opacity:.6;
-}
-.internet-box{border-color:var(--red);color:var(--red)}
-.pfsense-box{border-color:var(--orange);color:var(--orange);border-width:2px}
-.lan-box{border-color:var(--green);color:var(--green)}
-.dmz-box{border-color:var(--cyan);color:var(--cyan)}
-.kali-box{border-color:var(--purple);color:var(--purple)}
-.ubuntu-box{border-color:var(--yellow);color:var(--yellow)}
+/* OVERVIEW */
+.overview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.ov-card{padding:22px;position:relative;overflow:hidden}
+.ov-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green);transform:scaleX(0);transition:transform .3s;transform-origin:left}
+.ov-card:hover::before{transform:scaleX(1)}
+.ov-icon{font-size:24px;margin-bottom:10px;display:block}
+.ov-title{font-family:var(--head);font-size:11px;color:var(--texthi);letter-spacing:1px;margin-bottom:6px}
+.ov-text{font-size:13px;color:var(--text);line-height:1.7}
 
-.network-table{width:100%;border-collapse:collapse;margin-top:24px}
-.network-table th{
-  background:var(--bg2);
-  font-family:var(--mono);font-size:10px;
-  letter-spacing:2px;text-transform:uppercase;
-  color:var(--green);padding:12px 16px;
-  text-align:left;border-bottom:1px solid var(--border);
-}
-.network-table td{
-  padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.04);
-  font-size:13px;vertical-align:top;
-}
-.network-table tr:hover td{background:rgba(57,255,20,.02)}
-.network-table code{
-  font-family:var(--mono);font-size:12px;
-  color:var(--cyan);
-  background:rgba(0,229,255,.06);
-  padding:2px 6px;
-}
+/* ARCH */
+.arch-wrap{background:var(--bg1);border:1px solid var(--border);border-radius:4px;padding:36px;margin-bottom:28px;position:relative;overflow:hidden}
+.arch-wrap::after{content:'NETWORK TOPOLOGY';position:absolute;top:12px;right:16px;font-family:var(--mono);font-size:8px;letter-spacing:3px;color:var(--dim)}
+.arch-flow{display:flex;flex-direction:column;align-items:center;font-family:var(--mono);font-size:11px}
+.arch-node{border:1px solid;border-radius:4px;padding:9px 20px;text-align:center;min-width:180px}
+.arch-conn{display:flex;flex-direction:column;align-items:center;color:var(--dim);font-size:10px;padding:3px 0;gap:1px}
+.arch-conn span{width:1px;height:16px;background:var(--dim)}
+.arch-row{display:flex;align-items:flex-start;justify-content:center;gap:40px;width:100%}
+.arch-branch{display:flex;flex-direction:column;align-items:center}
+.n-sub{font-size:9px;opacity:.55;margin-top:2px;display:block}
+.n-internet{border-color:var(--red);color:var(--red)}
+.n-pfsense{border-color:var(--orange);color:var(--orange);border-width:2px}
+.n-lan{border-color:var(--green);color:var(--green)}
+.n-dmz{border-color:var(--cyan);color:var(--cyan)}
+.n-kali{border-color:var(--purple);color:var(--purple)}
+.n-ubuntu{border-color:var(--yellow);color:var(--yellow)}
 
-/* ══════════════════════════════════════════
-   PHASES / ROADMAP
-══════════════════════════════════════════ */
-.phases-grid{display:flex;flex-direction:column;gap:0}
-.phase-item{
-  display:grid;
-  grid-template-columns:80px 1fr;
-  gap:0;
-  position:relative;
-}
-.phase-item:not(:last-child) .phase-line{
-  position:absolute;left:39px;top:52px;bottom:0;
-  width:2px;background:var(--border);z-index:0;
-}
-.phase-num-col{
-  display:flex;flex-direction:column;align-items:center;
-  padding-top:16px;position:relative;z-index:1;
-}
-.phase-circle{
-  width:40px;height:40px;border-radius:50%;
-  border:2px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:12px;font-weight:600;
-  color:var(--dim);background:var(--bg);
-  transition:all .3s;flex-shrink:0;
-}
-.phase-item.done .phase-circle{
-  border-color:var(--green);color:var(--green);
-  box-shadow:0 0 16px rgba(57,255,20,.2);
-}
-.phase-item.active .phase-circle{
-  border-color:var(--orange);color:var(--orange);
-  background:rgba(255,140,0,.08);
-  animation:pulse-ring 2s ease-in-out infinite;
-}
-@keyframes pulse-ring{
-  0%,100%{box-shadow:0 0 0 0 rgba(255,140,0,.3)}
-  50%{box-shadow:0 0 0 8px rgba(255,140,0,0)}
-}
-.phase-content{
-  background:var(--bg1);border:1px solid var(--border);
-  border-radius:4px;margin:8px 0 8px 16px;
-  padding:20px 24px;
-  transition:border-color .2s;cursor:pointer;
-}
-.phase-content:hover{border-color:var(--green)}
-.phase-header{
-  display:flex;align-items:center;
-  justify-content:space-between;gap:16px;
-}
-.phase-title{
-  font-family:var(--head);font-size:14px;
-  color:var(--texthi);letter-spacing:.5px;
-}
-.phase-badge{
-  font-family:var(--mono);font-size:9px;
-  letter-spacing:2px;padding:3px 10px;
-  border-radius:2px;flex-shrink:0;
-}
-.badge-done{background:rgba(57,255,20,.1);color:var(--green);border:1px solid rgba(57,255,20,.2)}
-.badge-active{background:rgba(255,140,0,.1);color:var(--orange);border:1px solid rgba(255,140,0,.2)}
-.badge-planned{background:rgba(255,255,255,.04);color:var(--dim);border:1px solid var(--border)}
-.phase-desc{font-size:13px;color:var(--text);margin-top:8px}
-.phase-tools{
-  display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;
-}
-.tool-tag{
-  font-family:var(--mono);font-size:10px;
-  color:var(--cyan);background:rgba(0,229,255,.06);
-  border:1px solid rgba(0,229,255,.15);
-  padding:3px 10px;border-radius:2px;
-}
-.phase-details{
-  max-height:0;overflow:hidden;
-  transition:max-height .4s ease;
-}
-.phase-details.open{max-height:600px}
-.phase-detail-body{
-  border-top:1px solid var(--border);
-  margin-top:16px;padding-top:16px;
-}
-.phase-commands{
-  background:var(--bg);border:1px solid var(--border);
-  border-left:3px solid var(--cyan);
-  padding:14px 16px;margin:10px 0;
-  font-family:var(--mono);font-size:12px;
-  color:var(--cyan);line-height:1.9;
-}
-.cmd-comment{color:var(--dim)}
+/* PHASES */
+.phase-list{display:flex;flex-direction:column;gap:10px}
+.phase-card{background:var(--bg1);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color .2s}
+.phase-card.done{border-left:3px solid var(--green)}
+.phase-card.active-phase{border-left:3px solid var(--orange)}
+.phase-card.planned{border-left:3px solid var(--border2)}
+.phase-head{display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;user-select:none}
+.phase-num{font-family:var(--head);font-size:10px;color:var(--dim);min-width:24px}
+.phase-card.done .phase-num{color:var(--green)}
+.phase-card.active-phase .phase-num{color:var(--orange)}
+.phase-title-wrap{flex:1}
+.phase-title{font-size:14px;font-weight:600;color:var(--texthi)}
+.phase-short{font-size:12px;color:var(--text);margin-top:2px}
+.phase-tools-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.ptag{font-family:var(--mono);font-size:9px;color:var(--cyan);background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.12);padding:2px 7px;border-radius:2px}
+.phase-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.pbadge{font-family:var(--mono);font-size:8px;letter-spacing:1px;padding:3px 8px;border-radius:2px}
+.pb-done{background:rgba(57,255,20,.1);color:var(--green);border:1px solid rgba(57,255,20,.2)}
+.pb-active{background:rgba(255,140,0,.1);color:var(--orange);border:1px solid rgba(255,140,0,.2)}
+.pb-planned{background:rgba(255,255,255,.03);color:var(--dim);border:1px solid var(--border)}
+.phase-arrow{font-size:11px;color:var(--dim);transition:transform .25s}
+.phase-card.open .phase-arrow{transform:rotate(180deg)}
+.phase-body{display:none;border-top:1px solid var(--border);padding:20px}
+.phase-card.open .phase-body{display:block}
+.phase-section{margin-bottom:20px}
+.ps-title{font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--green);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.ps-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.phase-text{font-size:13px;color:var(--text);line-height:1.8;margin-bottom:8px}
 
-/* ══════════════════════════════════════════
-   TOOLS GRID
-══════════════════════════════════════════ */
-.tools-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:16px;
-}
-.tool-card{
-  background:var(--bg1);border:1px solid var(--border);
-  border-radius:4px;padding:24px;
-  transition:all .2s;
-  display:flex;gap:16px;align-items:flex-start;
-}
-.tool-card:hover{border-color:var(--green);transform:translateY(-2px)}
-.tool-icon{font-size:26px;flex-shrink:0;margin-top:2px}
-.tool-info h4{
-  font-family:var(--head);font-size:13px;
-  color:var(--texthi);margin-bottom:4px;
-  letter-spacing:.5px;
-}
-.tool-info p{font-size:12px;color:var(--text)}
-.tool-cat{
-  font-family:var(--mono);font-size:9px;
-  letter-spacing:2px;color:var(--dim);
-  margin-top:6px;text-transform:uppercase;
-}
-
-/* ══════════════════════════════════════════
-   DIAGRAMS GALLERY
-══════════════════════════════════════════ */
-.diagrams-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
-  gap:20px;
-}
-.diagram-card{
-  background:var(--bg1);border:1px solid var(--border);
-  border-radius:4px;overflow:hidden;
-  transition:all .2s;cursor:pointer;
-}
-.diagram-card:hover{border-color:var(--green);transform:translateY(-3px)}
-.diagram-preview{
-  aspect-ratio:16/9;
-  background:var(--bg2);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:11px;
-  color:var(--dim);letter-spacing:2px;
-  position:relative;overflow:hidden;
-  border-bottom:1px solid var(--border);
-}
-/* ASCII mini-diagrams for each card */
-.diagram-preview pre{
-  font-size:9px;line-height:1.6;
-  color:var(--green);opacity:.7;
-  text-align:left;padding:16px;
-}
-.diagram-label{
-  padding:16px;
-}
-.diagram-label h4{
-  font-family:var(--head);font-size:13px;
-  color:var(--texthi);margin-bottom:4px;
-  letter-spacing:.5px;
-}
-.diagram-label p{font-size:12px;color:var(--text)}
-.diagram-label span{
-  font-family:var(--mono);font-size:9px;
-  color:var(--green);letter-spacing:2px;
-  display:block;margin-top:8px;
-}
-
-/* ══════════════════════════════════════════
-   GITHUB SETUP
-══════════════════════════════════════════ */
-.github-timeline{display:flex;flex-direction:column;gap:0}
-.gh-step{
-  display:grid;grid-template-columns:48px 1fr;
-  gap:16px;padding-bottom:32px;
-  position:relative;
-}
-.gh-step:not(:last-child)::before{
-  content:'';position:absolute;
-  left:23px;top:48px;bottom:0;
-  width:1px;background:var(--border);
-}
-.gh-dot{
-  width:48px;height:48px;border-radius:50%;
-  background:var(--bg2);border:2px solid var(--green);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:14px;font-weight:700;
-  color:var(--green);flex-shrink:0;
-  box-shadow:0 0 12px rgba(57,255,20,.15);
-}
-.gh-body{
-  background:var(--bg1);border:1px solid var(--border);
-  border-radius:4px;padding:20px 24px;
-}
-.gh-body h3{
-  font-family:var(--head);font-size:15px;
-  color:var(--texthi);margin-bottom:6px;
-  letter-spacing:.5px;
-}
-.gh-body p{font-size:13px;color:var(--text);margin-bottom:12px}
-.code-block{
-  background:var(--bg);border:1px solid var(--border);
-  border-left:3px solid var(--cyan);
-  padding:14px 16px;
-  font-family:var(--mono);font-size:12px;
-  color:var(--cyan);line-height:1.9;
-  overflow-x:auto;
-  position:relative;
-}
-.copy-btn{
-  position:absolute;top:8px;right:8px;
-  font-family:var(--mono);font-size:9px;
-  letter-spacing:1px;color:var(--dim);
-  background:var(--bg2);border:1px solid var(--border);
-  padding:3px 8px;cursor:pointer;
-  transition:all .2s;
-}
+/* CODE */
+.code-block{background:var(--bg);border:1px solid var(--border);border-left:3px solid var(--cyan);padding:13px 14px;margin:8px 0;font-family:var(--mono);font-size:11px;color:var(--cyan);line-height:2;overflow-x:auto;position:relative;border-radius:0 4px 4px 0}
+.cm{color:var(--dim)}
+.copy-btn{position:absolute;top:7px;right:7px;font-family:var(--mono);font-size:8px;letter-spacing:1px;color:var(--dim);background:var(--bg2);border:1px solid var(--border);padding:3px 7px;cursor:pointer;transition:all .2s}
 .copy-btn:hover{color:var(--green);border-color:var(--green)}
-.copy-btn.copied{color:var(--green)}
+.copy-btn.ok{color:var(--green)}
 
-/* ══════════════════════════════════════════
-   SKILLS
-══════════════════════════════════════════ */
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:16px;
-}
-.skill-card{
-  background:var(--bg1);border:1px solid var(--border);
-  border-radius:4px;padding:20px;
-  transition:border-color .2s;
-}
-.skill-card:hover{border-color:var(--green)}
-.skill-name{
-  font-family:var(--mono);font-size:12px;
-  color:var(--texthi);margin-bottom:10px;
-  display:flex;justify-content:space-between;
-}
-.skill-pct{color:var(--green)}
-.skill-bar{
-  height:3px;background:var(--border);
-  border-radius:2px;overflow:hidden;
-}
-.skill-fill{
-  height:100%;border-radius:2px;
-  background:linear-gradient(90deg,var(--green),var(--cyan));
-  transition:width 1.2s ease;
-  width:0;
-}
+/* ISSUES */
+.issue-list{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.issue-card{background:var(--bg);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.issue-head{display:flex;align-items:center;gap:9px;padding:11px 13px;cursor:pointer}
+.issue-title{font-size:12px;font-weight:600;color:var(--red);flex:1}
+.issue-tog{font-size:10px;color:var(--dim);transition:transform .2s}
+.issue-card.open .issue-tog{transform:rotate(180deg)}
+.issue-body{display:none;padding:11px 13px;border-top:1px solid var(--border)}
+.issue-card.open .issue-body{display:block}
+.ilbl{font-family:var(--mono);font-size:8px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;margin-bottom:4px;margin-top:8px}
+.ilbl:first-child{margin-top:0}
+.itext{font-size:12px;color:var(--text);line-height:1.7}
 
-/* ══════════════════════════════════════════
-   CONTACT / FOOTER
-══════════════════════════════════════════ */
-#contact{
-  padding:100px 40px;
-  background:var(--bg1);
-  border-top:1px solid var(--border);
-  text-align:center;
-  max-width:100%;
-}
-.contact-inner{max-width:600px;margin:0 auto}
-.contact-links{
-  display:flex;justify-content:center;
-  flex-wrap:wrap;gap:16px;margin-top:40px;
-}
-.contact-link{
-  font-family:var(--mono);font-size:11px;
-  letter-spacing:2px;text-transform:uppercase;
-  color:var(--green);text-decoration:none;
-  border:1px solid var(--green);
-  padding:12px 24px;
-  transition:all .2s;display:flex;align-items:center;gap:8px;
-}
-.contact-link:hover{background:rgba(57,255,20,.08)}
+/* TOOLS */
+.tools-tabs,.gh-tabs{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:20px;overflow-x:auto}
+.tool-tab,.gh-tab{font-family:var(--mono);font-size:9px;letter-spacing:2px;padding:9px 16px;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;transition:all .2s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;text-transform:uppercase}
+.tool-tab:hover,.gh-tab:hover{color:var(--text)}
+.tool-tab.active,.gh-tab.active{color:var(--green);border-bottom-color:var(--green)}
+.tool-panel,.gh-panel{display:none}
+.tool-panel.active,.gh-panel.active{display:block}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.tool-card{padding:18px;display:flex;gap:12px;align-items:flex-start}
+.tool-icon{font-size:22px;flex-shrink:0;margin-top:1px}
+.tool-name{font-family:var(--head);font-size:11px;color:var(--texthi);margin-bottom:4px;letter-spacing:.5px}
+.tool-desc{font-size:12px;color:var(--text);line-height:1.6}
+.tool-cat{font-family:var(--mono);font-size:8px;color:var(--dim);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
 
-footer{
-  text-align:center;padding:32px;
-  border-top:1px solid var(--border);
-  font-family:var(--mono);font-size:11px;
-  color:var(--dim);letter-spacing:2px;
-}
+/* DIAGRAMS */
+.diagrams-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.diag-card{overflow:hidden}
+.diag-preview{aspect-ratio:16/9;background:var(--bg2);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.diag-preview pre{font-family:var(--mono);font-size:9px;line-height:1.7;color:var(--green);opacity:.65;padding:10px}
+.diag-overlay{position:absolute;inset:0;background:rgba(6,10,6,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
+.diag-card:hover .diag-overlay{opacity:1}
+.diag-btn{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--green);border:1px solid var(--green);padding:7px 14px}
+.diag-info{padding:14px}
+.diag-title{font-family:var(--head);font-size:12px;color:var(--texthi);margin-bottom:3px;letter-spacing:.5px}
+.diag-desc{font-size:12px;color:var(--text)}
+.diag-file{font-family:var(--mono);font-size:8px;color:var(--green);margin-top:6px;display:block}
 
-/* ══════════════════════════════════════════
-   ANIMATIONS
-══════════════════════════════════════════ */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+/* GITHUB */
+.gh-tabs{margin-bottom:0}
+.gh-content{background:var(--bg1);border:1px solid var(--border);border-top:none;border-radius:0 0 4px 4px;padding:28px}
+.gh-timeline{display:flex;flex-direction:column;gap:0}
+.gh-step{display:grid;grid-template-columns:42px 1fr;gap:12px;padding-bottom:24px;position:relative}
+.gh-step:not(:last-child)::before{content:'';position:absolute;left:20px;top:42px;bottom:0;width:1px;background:var(--border)}
+.gh-dot{width:42px;height:42px;border-radius:50%;background:var(--bg2);border:2px solid var(--green);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:700;color:var(--green);flex-shrink:0;box-shadow:0 0 10px rgba(57,255,20,.08)}
+.gh-body{padding-top:7px}
+.gh-body h3{font-size:14px;font-weight:700;color:var(--texthi);margin-bottom:5px}
+.gh-body p{font-size:12px;color:var(--text);margin-bottom:8px;line-height:1.7}
+.info-box{padding:10px 14px;margin:8px 0;font-size:12px;line-height:1.6;border-radius:0 4px 4px 0}
+.info-warn{background:rgba(255,140,0,.06);border-left:3px solid var(--orange)}
+.info-tip{background:rgba(57,255,20,.05);border-left:3px solid var(--green)}
+.info-danger{background:rgba(255,34,68,.06);border-left:3px solid var(--red)}
+.info-box strong{color:var(--texthi)}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.sk-card{padding:16px}
+.sk-name{font-family:var(--mono);font-size:10px;color:var(--texthi);margin-bottom:7px;display:flex;justify-content:space-between}
+.sk-pct{color:var(--green)}
+.sk-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden}
+.sk-fill{height:100%;background:linear-gradient(90deg,var(--green),var(--cyan));width:0;transition:width 1.2s ease;border-radius:2px}
+
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:12px;margin:14px 0}
+.data-table th{background:var(--bg2);font-family:var(--mono);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--green);padding:10px 13px;text-align:left;border-bottom:1px solid var(--border)}
+.data-table td{padding:10px 13px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text);vertical-align:top}
+.data-table tr:hover td{background:rgba(57,255,20,.012)}
+.data-table code{font-family:var(--mono);font-size:10px;color:var(--cyan);background:rgba(0,229,255,.07);padding:2px 5px}
+
+/* CONTACT */
+#contact{background:var(--bg1);border-top:1px solid var(--border);padding:80px 28px;text-align:center;max-width:100%}
+.contact-inner{max-width:520px;margin:0 auto}
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:30px}
+.contact-link{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--green);text-decoration:none;border:1px solid var(--green);padding:10px 20px;transition:all .2s;display:inline-flex;align-items:center;gap:7px}
+.contact-link:hover{background:rgba(57,255,20,.06)}
+footer{text-align:center;padding:24px;border-top:1px solid var(--border);font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:2px}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
 .reveal.visible{opacity:1;transform:none}
-
-/* ══════════════════════════════════════════
-   MOBILE
-══════════════════════════════════════════ */
-@media(max-width:768px){
-  nav{padding:0 20px}
-  .nav-links{display:none}
-  section{padding:80px 20px}
-  .arch-diagram{padding:24px}
-  #contact{padding:80px 20px}
-}
+@media(max-width:640px){.wrap{padding:70px 16px}.arch-wrap{padding:18px}.phase-body{padding:14px}#contact{padding:60px 16px}}
 </style>
 </head>
 <body>
 <div class="site">
 
-<!-- ── NAV ──────────────────────────────────────── -->
+<!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo"><span>AAYUSH</span>955</a>
+  <a href="#hero" class="nav-logo"><div class="nav-logo-icon">🛡️</div>HOME SECURITY LAB</a>
   <ul class="nav-links">
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#lab">Lab</a></li>
-    <li><a href="#phases">Phases</a></li>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#diagrams">Diagrams</a></li>
-    <li><a href="#github">GitHub</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#overview">Overview</a></li><li><a href="#lab">Lab</a></li>
+    <li><a href="#phases">Phases</a></li><li><a href="#tools">Tools</a></li>
+    <li><a href="#diagrams">Diagrams</a></li><li><a href="#github">GitHub</a></li>
+    <li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-status"><div class="status-dot"></div>LAB ACTIVE</div>
+  <div class="nav-right">
+    <div class="nav-status"><div class="status-dot"></div>LAB ACTIVE</div>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#overview" onclick="closeMenu()">Overview</a><a href="#lab" onclick="closeMenu()">Lab Architecture</a>
+  <a href="#phases" onclick="closeMenu()">Lab Phases</a><a href="#tools" onclick="closeMenu()">Tools</a>
+  <a href="#diagrams" onclick="closeMenu()">Diagrams</a><a href="#github" onclick="closeMenu()">GitHub Setup</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a><a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 
-<!-- ── HERO ─────────────────────────────────────── -->
-<section id="hero" style="max-width:100%;padding-top:60px">
-  <div class="hero-tag">// Cybersecurity Portfolio — 2024</div>
-  <h1 class="hero-name">AAYUSH<em>955</em></h1>
-  <div class="hero-title">Network Security · Ethical Hacking · Lab Engineering</div>
-  <p class="hero-desc">Building enterprise-grade security skills through hands-on virtualized lab environments. Documenting every phase for a professional portfolio.</p>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-eyebrow">Cybersecurity Portfolio — Aayush955</div>
+  <h1 class="hero-h1">HOME<em>SECURITY LAB</em></h1>
+  <div class="hero-sub">Enterprise Network Security · From Scratch · Fully Documented</div>
+  <p class="hero-desc">A hands-on 3-month project building a fully virtualized enterprise-grade security lab. Every phase documented with commands, observations, issues, and solutions.</p>
   <div class="hero-btns">
-    <a href="#lab" class="btn btn-primary">View Lab Architecture</a>
-    <a href="https://github.com/Aayush955" target="_blank" class="btn btn-ghost">GitHub Profile →</a>
+    <a href="#phases" class="btn btn-primary">▶ Explore the Lab</a>
+    <a href="https://github.com/Aayush955/cybersec-lab-portfolio" target="_blank" class="btn btn-ghost">⬡ GitHub Repo</a>
   </div>
-  <div class="hero-terminal">
-    <div class="term-bar">
-      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-      <div class="term-title">aayush955@cybersec-lab ~ $</div>
-    </div>
+  <div class="hero-term">
+    <div class="term-bar"><div class="dot r"></div><div class="dot y"></div><div class="dot g"></div><div class="term-label">aayush955@home-security-lab ~ $</div></div>
     <div class="term-body">
-      <div><span class="t-dim">$</span> <span class="t-green">gh repo list</span></div>
-      <div><span class="t-cyan">Aayush955/Aayush955</span> <span class="t-dim">— Profile README — public</span></div>
-      <div><span class="t-cyan">Aayush955/cybersec-lab-portfolio</span> <span class="t-dim">— private</span></div>
-      <div><span class="t-dim">$</span> <span class="t-green">git log --oneline -3</span></div>
-      <div><span class="t-orange">7cb6abb</span> <span class="t-text">Add professional lab diagrams</span></div>
-      <div><span class="t-orange">2ad3f97</span> <span class="t-text">Phase 1 environment setup docs</span></div>
-      <div><span class="t-orange">39ff142</span> <span class="t-text">Initial commit: portfolio structure</span></div>
-      <div><span class="t-dim">$</span> <span class="cursor"></span></div>
+      <div><span class="t-d">$</span> <span class="t-g">virsh net-list --all</span></div>
+      <div><span class="t-c">lab-wan</span><span class="t-d"> active  yes  NAT</span></div>
+      <div><span class="t-c">lab-lan</span><span class="t-d"> active  yes  isolated 10.0.1.0/24</span></div>
+      <div><span class="t-c">lab-dmz</span><span class="t-d"> active  yes  isolated 10.0.2.0/24</span></div>
+      <div><span class="t-d">$</span> <span class="t-g">gh repo list</span></div>
+      <div><span class="t-c">Aayush955/cybersec-lab-portfolio</span><span class="t-d"> private</span></div>
+      <div><span class="t-c">Aayush955/Aayush955</span><span class="t-d"> public — profile README</span></div>
+      <div><span class="t-d">$</span> <span class="cursor"></span></div>
     </div>
   </div>
-  <div class="scroll-hint">SCROLL<div class="scroll-arrow"></div></div>
+  <div class="scroll-hint">SCROLL<div class="scroll-line"></div></div>
 </section>
 
-<!-- ── STATS ────────────────────────────────────── -->
-<div id="stats">
+<!-- STATS -->
+<div class="stats-bar">
   <div class="stats-inner">
-    <div class="stat-item"><span class="stat-num" data-target="10">0</span><div class="stat-lbl">Lab Phases</div></div>
-    <div class="stat-item"><span class="stat-num" data-target="6">0</span><div class="stat-lbl">Diagrams</div></div>
-    <div class="stat-item"><span class="stat-num" data-target="3">0</span><div class="stat-lbl">Months</div></div>
-    <div class="stat-item"><span class="stat-num" data-target="2">0</span><div class="stat-lbl">GitHub Repos</div></div>
-    <div class="stat-item"><span class="stat-num" data-target="15">0</span><div class="stat-lbl">Tools Used</div></div>
+    <div class="stat-item"><span class="stat-n" data-target="10">0</span><div class="stat-l">Lab Phases</div></div>
+    <div class="stat-item"><span class="stat-n" data-target="6">0</span><div class="stat-l">Diagrams</div></div>
+    <div class="stat-item"><span class="stat-n" data-target="3">0</span><div class="stat-l">Months</div></div>
+    <div class="stat-item"><span class="stat-n" data-target="3">0</span><div class="stat-l">Network Segments</div></div>
+    <div class="stat-item"><span class="stat-n" data-target="15">0</span><div class="stat-l">Tools</div></div>
+    <div class="stat-item"><span class="stat-n" data-target="2">0</span><div class="stat-l">GitHub Repos</div></div>
   </div>
 </div>
 
-<!-- ── OVERVIEW ─────────────────────────────────── -->
-<section id="overview">
+<!-- OVERVIEW -->
+<div class="wrap" id="overview">
   <div class="section-tag">01 — About</div>
-  <h2 class="section-title">Project <span>Overview</span></h2>
-  <p class="section-sub">A 3-month hands-on cybersecurity project simulating a real enterprise network environment from scratch — documented at every step.</p>
+  <h2 class="section-h">Project <span>Overview</span></h2>
+  <p class="section-p">A fully virtualized enterprise-style security lab built from scratch on a Linux laptop — simulating real-world network security scenarios.</p>
   <div class="overview-grid reveal">
-    <div class="overview-card">
-      <span class="oc-icon">🎯</span>
-      <div class="oc-title">OBJECTIVE</div>
-      <p class="oc-text">Build a fully virtualized enterprise-style security lab using KVM on a Linux host. Deploy pfSense, configure network segmentation, run IDS/IPS, perform penetration testing, and document everything as a professional portfolio.</p>
-    </div>
-    <div class="overview-card">
-      <span class="oc-icon">🖥️</span>
-      <div class="oc-title">ENVIRONMENT</div>
-      <p class="oc-text">Host OS: Linux (KVM + virt-manager). Three isolated virtual networks: WAN (NAT), LAN (isolated), DMZ (isolated). All traffic routed through pfSense firewall acting as the sole gateway.</p>
-    </div>
-    <div class="overview-card">
-      <span class="oc-icon">📅</span>
-      <div class="oc-title">TIMELINE</div>
-      <p class="oc-text">3 months total, working one dedicated day per week. Each session is documented with objectives, commands used, observations, issues encountered, and key security takeaways.</p>
-    </div>
-    <div class="overview-card">
-      <span class="oc-icon">💼</span>
-      <div class="oc-title">PORTFOLIO GOAL</div>
-      <p class="oc-text">Demonstrate real-world security skills to prospective employers. Covers network architecture, firewall hardening, IDS/IPS, VPN, penetration testing methodology, and incident response.</p>
-    </div>
+    <div class="card ov-card"><span class="ov-icon">🎯</span><div class="ov-title">OBJECTIVE</div><p class="ov-text">Build a hands-on cybersecurity lab mirroring real enterprise environments. Cover network design, firewall policy, intrusion detection, penetration testing, VPN, and incident response — fully documented.</p></div>
+    <div class="card ov-card"><span class="ov-icon">🖥️</span><div class="ov-title">ENVIRONMENT</div><p class="ov-text">Single Linux host running KVM virtualization. Three isolated virtual networks with all traffic forced through pfSense. Zero extra physical hardware needed.</p></div>
+    <div class="card ov-card"><span class="ov-icon">📅</span><div class="ov-title">TIMELINE</div><p class="ov-text">3 months, one dedicated session per week. Each session produces a documented write-up with commands, observations, problems, and security takeaways.</p></div>
+    <div class="card ov-card"><span class="ov-icon">💼</span><div class="ov-title">PORTFOLIO GOAL</div><p class="ov-text">Demonstrate real security engineering skills. Show that I can design secure networks, detect attacks, respond to incidents, and write professional security findings.</p></div>
   </div>
-</section>
+</div>
 
-<!-- ── LAB ARCHITECTURE ─────────────────────────── -->
-<section id="lab">
+<!-- LAB ARCHITECTURE -->
+<div class="wrap" id="lab" style="padding-top:0">
   <div class="section-tag">02 — Architecture</div>
-  <h2 class="section-title">Lab <span>Architecture</span></h2>
-  <p class="section-sub">Enterprise-style network segmentation with three isolated virtual networks, all traffic flowing through the pfSense firewall.</p>
-
-  <div class="arch-diagram reveal">
-    <div class="arch-row">
-      <div class="arch-box internet-box">🌐 Internet / WAN<span class="arch-label">External Network</span></div>
-    </div>
-    <div class="arch-row"><div style="font-family:var(--mono);color:var(--orange);font-size:12px">│ WAN em0 │ 192.168.100.2</div></div>
-    <div class="arch-row">
-      <div class="arch-box pfsense-box">🛡️ pfSense Firewall<span class="arch-label">Router · DHCP · DNS · VPN · IDS</span></div>
-    </div>
-    <div class="arch-row" style="gap:80px">
-      <div style="font-family:var(--mono);color:var(--green);font-size:11px;text-align:center">LAN em1<br/>10.0.1.1/24</div>
-      <div style="font-family:var(--mono);color:var(--cyan);font-size:11px;text-align:center">DMZ em2<br/>10.0.2.1/24</div>
-    </div>
-    <div class="arch-row" style="gap:80px">
-      <div class="arch-box lan-box">LAN Segment<span class="arch-label">10.0.1.0/24 — Isolated</span></div>
-      <div class="arch-box dmz-box">DMZ Segment<span class="arch-label">10.0.2.0/24 — Isolated</span></div>
-    </div>
-    <div class="arch-row" style="gap:80px">
-      <div class="arch-box kali-box">💀 Kali Linux<span class="arch-label">10.0.1.10 — Attacker</span></div>
-      <div class="arch-box ubuntu-box">🖥️ Ubuntu Server<span class="arch-label">10.0.2.10 — Target</span></div>
+  <h2 class="section-h">Lab <span>Architecture</span></h2>
+  <p class="section-p">Three-segment network with full traffic isolation. Every packet between segments passes through pfSense — exactly like a real enterprise DMZ.</p>
+  <div class="arch-wrap reveal">
+    <div class="arch-flow">
+      <div class="arch-node n-internet">🌐 Internet / WAN<span class="n-sub">External Network</span></div>
+      <div class="arch-conn"><span></span>WAN em0 · 192.168.100.2<span></span></div>
+      <div class="arch-node n-pfsense" style="min-width:260px">🛡️ pfSense Firewall<span class="n-sub">Router · DHCP · DNS · VPN · Suricata IDS</span></div>
+      <div style="display:flex;width:100%;justify-content:center;gap:100px;padding:0 16px">
+        <div class="arch-conn"><span></span>LAN em1 · 10.0.1.1<span></span></div>
+        <div class="arch-conn"><span></span>DMZ em2 · 10.0.2.1<span></span></div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-branch">
+          <div class="arch-node n-lan">LAN Segment<span class="n-sub">10.0.1.0/24 · Isolated</span></div>
+          <div class="arch-conn"><span></span></div>
+          <div class="arch-node n-kali">💀 Kali Linux<span class="n-sub">10.0.1.10 · Attacker</span></div>
+        </div>
+        <div class="arch-branch">
+          <div class="arch-node n-dmz">DMZ Segment<span class="n-sub">10.0.2.0/24 · Isolated</span></div>
+          <div class="arch-conn"><span></span></div>
+          <div class="arch-node n-ubuntu">🖥️ Ubuntu Server<span class="n-sub">10.0.2.10 · Target</span></div>
+        </div>
+      </div>
     </div>
   </div>
-
-  <table class="network-table reveal">
-    <thead>
-      <tr><th>Network</th><th>Type</th><th>Subnet</th><th>Bridge</th><th>Purpose</th></tr>
-    </thead>
+  <table class="data-table reveal">
+    <thead><tr><th>Network</th><th>Mode</th><th>Subnet</th><th>KVM Bridge</th><th>Purpose</th></tr></thead>
     <tbody>
-      <tr><td>lab-wan</td><td>NAT</td><td><code>192.168.100.0/24</code></td><td><code>virbr-wan</code></td><td>pfSense WAN — internet access via host</td></tr>
-      <tr><td>lab-lan</td><td>Isolated</td><td><code>10.0.1.0/24</code></td><td><code>virbr-lan</code></td><td>Internal LAN — Kali Linux attacker</td></tr>
-      <tr><td>lab-dmz</td><td>Isolated</td><td><code>10.0.2.0/24</code></td><td><code>virbr-dmz</code></td><td>DMZ — Ubuntu Server target</td></tr>
+      <tr><td>lab-wan</td><td>NAT</td><td><code>192.168.100.0/24</code></td><td><code>virbr-wan</code></td><td>Internet access via host NAT</td></tr>
+      <tr><td>lab-lan</td><td>Isolated</td><td><code>10.0.1.0/24</code></td><td><code>virbr-lan</code></td><td>Internal LAN — attacker segment</td></tr>
+      <tr><td>lab-dmz</td><td>Isolated</td><td><code>10.0.2.0/24</code></td><td><code>virbr-dmz</code></td><td>DMZ — target server segment</td></tr>
     </tbody>
   </table>
-</section>
+</div>
 
-<!-- ── PHASES ────────────────────────────────────── -->
-<section id="phases">
+<!-- PHASES -->
+<div class="wrap" id="phases" style="padding-top:0">
   <div class="section-tag">03 — Roadmap</div>
-  <h2 class="section-title">Lab <span>Phases</span></h2>
-  <p class="section-sub">10 phases covering the full security lifecycle — click any phase to expand the details and commands.</p>
-
-  <div class="phases-grid">
+  <h2 class="section-h">Lab <span>Phases</span></h2>
+  <p class="section-p">10 phases covering the full security lifecycle. Click any phase to expand details, commands, and common issues with solutions.</p>
+  <div class="phase-list reveal">
 
     <!-- Phase 1 -->
-    <div class="phase-item done">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">01</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
+    <div class="phase-card done" id="p1">
+      <div class="phase-head" onclick="togglePhase('p1')">
+        <div class="phase-num">01</div>
+        <div class="phase-title-wrap">
           <div class="phase-title">Environment Setup — KVM + virt-manager</div>
-          <div class="phase-badge badge-done">✔ DONE</div>
+          <div class="phase-short">Install and configure the KVM virtualization stack on the Linux host</div>
+          <div class="phase-tools-row"><span class="ptag">KVM</span><span class="ptag">QEMU</span><span class="ptag">virt-manager</span><span class="ptag">libvirt</span><span class="ptag">OVMF</span></div>
         </div>
-        <p class="phase-desc">Installed and configured KVM hypervisor stack on Linux host. Verified CPU virtualization support, installed libvirt, added user to required groups.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">KVM</span><span class="tool-tag">QEMU</span>
-          <span class="tool-tag">virt-manager</span><span class="tool-tag">libvirt</span>
+        <div class="phase-right"><span class="pbadge pb-done">✔ DONE</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Objective</div>
+          <p class="phase-text">Set up KVM (Kernel-based Virtual Machine) on a Linux laptop as the hypervisor for all lab VMs. KVM uses hardware-assisted virtualization (Intel VT-x or AMD-V) to run VMs at near-native CPU speed. We also install virt-manager as a GUI and libvirt as the virtualization management layer.</p>
         </div>
-        <div class="phase-details">
-          <div class="phase-detail-body">
-            <p style="font-size:13px;color:var(--text);margin-bottom:12px">Commands used this phase:</p>
-            <div class="code-block">
-              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-              <span class="cmd-comment"># Verify CPU supports virtualization</span><br/>
-              egrep -c '(vmx|svm)' /proc/cpuinfo<br/>
-              sudo kvm-ok<br/><br/>
-              <span class="cmd-comment"># Install KVM stack</span><br/>
-              sudo apt install -y qemu-kvm libvirt-daemon-system \<br/>
-              &nbsp;&nbsp;libvirt-clients bridge-utils virt-manager<br/><br/>
-              <span class="cmd-comment"># Add user to groups</span><br/>
-              sudo usermod -aG libvirt,kvm $USER<br/>
-              sudo systemctl enable --now libvirtd<br/><br/>
-              <span class="cmd-comment"># Verify</span><br/>
-              virsh list --all
+        <div class="phase-section">
+          <div class="ps-title">Commands</div>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># Step 1 — Verify CPU supports hardware virtualization</span>
+egrep -c '(vmx|svm)' /proc/cpuinfo
+sudo kvm-ok
+
+<span class="cm"># Step 2 — Install full KVM stack</span>
+sudo apt update && sudo apt install -y \
+  qemu-kvm libvirt-daemon-system libvirt-clients \
+  bridge-utils virt-manager virtinst ovmf
+
+<span class="cm"># Step 3 — Add user to required groups (log out after)</span>
+sudo usermod -aG libvirt,kvm $USER
+
+<span class="cm"># Step 4 — Start and enable libvirt service</span>
+sudo systemctl enable --now libvirtd
+sudo systemctl status libvirtd
+
+<span class="cm"># Step 5 — Verify</span>
+virsh list --all
+virt-manager</div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Common Issues &amp; Solutions</div>
+          <div class="issue-list">
+            <div class="issue-card" id="i1a">
+              <div class="issue-head" onclick="toggleIssue('i1a')"><span>⚠</span><span class="issue-title">kvm-ok says "KVM acceleration can NOT be used"</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Cause</div><p class="itext">CPU virtualization (VT-x/AMD-V) is disabled in BIOS/UEFI or unsupported.</p>
+                <div class="ilbl">Fix</div><p class="itext">Reboot → enter BIOS (F2/F10/Del during boot) → find "Intel Virtualization Technology" or "SVM Mode" → Enable → Save and exit.</p>
+              </div>
+            </div>
+            <div class="issue-card" id="i1b">
+              <div class="issue-head" onclick="toggleIssue('i1b')"><span>⚠</span><span class="issue-title">virt-manager: "Unable to connect to libvirt"</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Cause</div><p class="itext">User not in libvirt group, or libvirtd not running.</p>
+                <div class="ilbl">Fix</div>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+sudo systemctl restart libvirtd
+sudo usermod -aG libvirt $USER
+<span class="cm"># Log out and back in, then verify:</span>
+groups $USER</div>
+              </div>
+            </div>
+            <div class="issue-card" id="i1c">
+              <div class="issue-head" onclick="toggleIssue('i1c')"><span>⚠</span><span class="issue-title">Permission denied running virsh commands</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Fix</div>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+echo 'export LIBVIRT_DEFAULT_URI="qemu:///system"' >> ~/.bashrc
+source ~/.bashrc</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Key Takeaway</div>
+          <p class="phase-text">KVM is a Type-1 hypervisor built into the Linux kernel — it runs VMs with near-native performance because it uses real CPU virtualization extensions. Unlike VirtualBox (Type-2), KVM passes CPU instructions directly to hardware. This is why enterprise data centers use KVM for production workloads.</p>
         </div>
       </div>
     </div>
 
     <!-- Phase 2 -->
-    <div class="phase-item done">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">02</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
-          <div class="phase-title">Virtual Network Design & Segmentation</div>
-          <div class="phase-badge badge-done">✔ DONE</div>
+    <div class="phase-card done" id="p2">
+      <div class="phase-head" onclick="togglePhase('p2')">
+        <div class="phase-num">02</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Virtual Network Design &amp; Segmentation</div>
+          <div class="phase-short">Create three isolated virtual networks using libvirt XML definitions</div>
+          <div class="phase-tools-row"><span class="ptag">virsh</span><span class="ptag">libvirt XML</span><span class="ptag">Linux bridges</span><span class="ptag">NAT</span></div>
         </div>
-        <p class="phase-desc">Created three isolated virtual networks using libvirt XML definitions. WAN uses NAT mode for internet access, LAN and DMZ are fully isolated so all traffic must pass through pfSense.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">virsh</span><span class="tool-tag">libvirt XML</span>
-          <span class="tool-tag">Linux bridges</span>
+        <div class="phase-right"><span class="pbadge pb-done">✔ DONE</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Objective</div>
+          <p class="phase-text">Create three logically separate virtual networks. LAN and DMZ are fully isolated — they have no direct path to the internet or each other. All traffic must pass through pfSense. This mirrors how real enterprise networks use VLANs to segment traffic and enforce policies at the firewall.</p>
         </div>
-        <div class="phase-details">
-          <div class="phase-detail-body">
-            <div class="code-block">
-              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-              <span class="cmd-comment"># Create all three networks</span><br/>
-              bash scripts/setup-kvm-networking.sh<br/><br/>
-              <span class="cmd-comment"># Verify networks are running</span><br/>
-              virsh net-list --all<br/><br/>
-              <span class="cmd-comment"># Confirm bridge interfaces on host</span><br/>
-              ip link show | grep virbr<br/>
-              brctl show
+        <div class="phase-section">
+          <div class="ps-title">Commands</div>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># Run the setup script</span>
+bash scripts/setup-kvm-networking.sh
+
+<span class="cm"># Verify all three networks running</span>
+virsh net-list --all
+
+<span class="cm"># Confirm bridges exist on host</span>
+ip link show | grep virbr
+brctl show</div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Common Issues &amp; Solutions</div>
+          <div class="issue-list">
+            <div class="issue-card" id="i2a">
+              <div class="issue-head" onclick="toggleIssue('i2a')"><span>⚠</span><span class="issue-title">Network already exists error</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+virsh net-destroy lab-lan
+virsh net-undefine lab-lan
+<span class="cm"># Then re-run the script</span></div>
+              </div>
+            </div>
+            <div class="issue-card" id="i2b">
+              <div class="issue-head" onclick="toggleIssue('i2b')"><span>⚠</span><span class="issue-title">Networks don't survive reboot</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+virsh net-autostart lab-wan
+virsh net-autostart lab-lan
+virsh net-autostart lab-dmz
+sudo systemctl enable libvirtd</div>
+              </div>
             </div>
           </div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Key Takeaway</div>
+          <p class="phase-text">Isolated networks in libvirt have no default route — packets can't leave the segment without a router. The bridge interfaces (virbr-lan, virbr-dmz) are visible on the host, which means you can run tcpdump on the host to capture all lab traffic regardless of firewall state — a powerful debugging and analysis technique.</p>
         </div>
       </div>
     </div>
 
     <!-- Phase 3 -->
-    <div class="phase-item active">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">03</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
-          <div class="phase-title">pfSense Deployment & Configuration</div>
-          <div class="phase-badge badge-active">⚡ IN PROGRESS</div>
+    <div class="phase-card active-phase" id="p3">
+      <div class="phase-head" onclick="togglePhase('p3')">
+        <div class="phase-num">03</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">pfSense Deployment &amp; Configuration</div>
+          <div class="phase-short">Deploy pfSense as the network gateway with WAN, LAN, and DMZ interfaces</div>
+          <div class="phase-tools-row"><span class="ptag">pfSense CE 2.7</span><span class="ptag">DHCP Server</span><span class="ptag">DNS Resolver</span><span class="ptag">NTP</span></div>
         </div>
-        <p class="phase-desc">Deploy pfSense CE as the network gateway. Configure WAN, LAN, and DMZ interfaces. Set up DHCP server, DNS resolver, NTP, and initial hardening.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">pfSense CE 2.7</span><span class="tool-tag">DHCP</span>
-          <span class="tool-tag">DNS Resolver</span><span class="tool-tag">NTP</span>
+        <div class="phase-right"><span class="pbadge pb-active">⚡ IN PROGRESS</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Objective</div>
+          <p class="phase-text">pfSense is a FreeBSD-based open-source firewall and router. It acts as the single gateway between all three network segments. Install pfSense as a VM, assign its three network interfaces, configure DHCP to hand out IPs to VMs, enable DNS resolver, and harden the default configuration.</p>
         </div>
-        <div class="phase-details">
-          <div class="phase-detail-body">
-            <p style="font-size:13px;color:var(--text);margin-bottom:12px">Network interface assignment:</p>
-            <div class="code-block">
-              <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-              em0 → WAN  (lab-wan network — 192.168.100.x)<br/>
-              em1 → LAN  (lab-lan network — 10.0.1.x)<br/>
-              em2 → DMZ  (lab-dmz network — 10.0.2.x)<br/><br/>
-              <span class="cmd-comment"># pfSense web UI accessible at:</span><br/>
-              http://10.0.1.1  (from Kali on LAN)<br/>
-              Default login: admin / pfsense
+        <div class="phase-section">
+          <div class="ps-title">VM Setup &amp; Interface Assignment</div>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># VM specs: 1024MB RAM, 1 vCPU, 8GB disk</span>
+<span class="cm"># Attach 3 NICs in virt-manager:</span>
+<span class="cm">#   NIC 1: lab-wan  → becomes em0 (WAN)</span>
+<span class="cm">#   NIC 2: lab-lan  → becomes em1 (LAN)</span>
+<span class="cm">#   NIC 3: lab-dmz  → becomes em2 (DMZ)</span>
+
+<span class="cm"># After install, pfSense console assigns:</span>
+<span class="cm"># WAN → em0 → DHCP → gets 192.168.100.x</span>
+<span class="cm"># LAN → em1 → static 10.0.1.1/24</span>
+<span class="cm"># DMZ → em2 → static 10.0.2.1/24</span>
+
+<span class="cm"># Access web UI from Kali (on LAN):</span>
+<span class="cm"># URL: http://10.0.1.1  User: admin  Pass: pfsense</span>
+<span class="cm"># CHANGE THE PASSWORD IMMEDIATELY</span></div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Common Issues &amp; Solutions</div>
+          <div class="issue-list">
+            <div class="issue-card" id="i3a">
+              <div class="issue-head" onclick="toggleIssue('i3a')"><span>⚠</span><span class="issue-title">pfSense WAN not getting DHCP from KVM NAT</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Cause</div><p class="itext">KVM bridge needs promiscuous mode, or VM NIC is on wrong network.</p>
+                <div class="ilbl">Fix</div>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+sudo ip link set virbr-wan promisc on
+<span class="cm"># Check pfSense got an IP via console</span>
+virsh console pfsense-vm</div>
+              </div>
+            </div>
+            <div class="issue-card" id="i3b">
+              <div class="issue-head" onclick="toggleIssue('i3b')"><span>⚠</span><span class="issue-title">Can't access pfSense web UI at 10.0.1.1</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Fix</div>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># On Kali — check if you have 10.0.1.x address</span>
+ip addr show
+<span class="cm"># If not, request DHCP manually</span>
+sudo dhclient eth0
+ping 10.0.1.1</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Phases 4-10 condensed -->
-    <div class="phase-item">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">04</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
-          <div class="phase-title">Deploy Internal VMs — Kali & Ubuntu</div>
-          <div class="phase-badge badge-planned">PLANNED</div>
+    <!-- Phases 4-10 -->
+    <div class="phase-card planned" id="p4">
+      <div class="phase-head" onclick="togglePhase('p4')">
+        <div class="phase-num">04</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Deploy Internal VMs — Kali Linux &amp; Ubuntu Server</div>
+          <div class="phase-short">Create attacker and target machines on their respective network segments</div>
+          <div class="phase-tools-row"><span class="ptag">Kali Linux 2024</span><span class="ptag">Ubuntu Server 22.04</span><span class="ptag">SSH</span><span class="ptag">Apache2</span></div>
         </div>
-        <p class="phase-desc">Create Kali Linux VM on LAN segment (attacker) and Ubuntu Server VM on DMZ segment (target). Configure static IPs, install required packages.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">Kali Linux</span><span class="tool-tag">Ubuntu Server 22.04</span><span class="tool-tag">SSH</span>
+        <div class="phase-right"><span class="pbadge pb-planned">PLANNED</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Objective</div>
+          <p class="phase-text">Deploy Kali Linux as the attacker on the LAN segment and Ubuntu Server as the target in the DMZ. Configure both with static IPs. Install vulnerable target services on Ubuntu (Apache, SSH, vsftpd) to give Kali realistic attack surfaces.</p>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Commands</div>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># On Ubuntu Server — set static IP via netplan</span>
+sudo nano /etc/netplan/00-installer-config.yaml
+<span class="cm"># Set: address 10.0.2.10/24, gateway4: 10.0.2.1</span>
+sudo netplan apply
+
+<span class="cm"># Install target services</span>
+sudo apt install -y apache2 openssh-server vsftpd
+sudo systemctl enable --now apache2 ssh
+
+<span class="cm"># From Kali — verify connectivity</span>
+ping 10.0.2.10
+curl http://10.0.2.10
+ssh ubuntu@10.0.2.10</div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Common Issues &amp; Solutions</div>
+          <div class="issue-list">
+            <div class="issue-card" id="i4a">
+              <div class="issue-head" onclick="toggleIssue('i4a')"><span>⚠</span><span class="issue-title">Kali can't reach Ubuntu even though both are running</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Cause</div><p class="itext">pfSense default rules block LAN to DMZ traffic. This is expected — correct behavior until Phase 5.</p>
+                <div class="ilbl">Fix</div><p class="itext">Complete Phase 5 firewall rules first. To test temporarily: pfSense web UI → Firewall → Rules → LAN → add a temporary allow-all rule. Remove after testing.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="phase-item">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">05</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
-          <div class="phase-title">Firewall Rules & Network Segmentation</div>
-          <div class="phase-badge badge-planned">PLANNED</div>
+    <div class="phase-card planned" id="p5">
+      <div class="phase-head" onclick="togglePhase('p5')">
+        <div class="phase-num">05</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Firewall Rules &amp; Segmentation Policy</div>
+          <div class="phase-short">Configure stateful firewall rules to enforce least-privilege traffic policy</div>
+          <div class="phase-tools-row"><span class="ptag">pfSense Rules</span><span class="ptag">Stateful Firewall</span><span class="ptag">NAT</span><span class="ptag">pfBlockerNG</span></div>
         </div>
-        <p class="phase-desc">Configure stateful firewall rules on all three interfaces. Enforce LAN→DMZ restrictions, block DMZ→LAN, configure NAT, and test rule enforcement.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">pfSense Rules</span><span class="tool-tag">NAT</span><span class="tool-tag">pfBlockerNG</span>
+        <div class="phase-right"><span class="pbadge pb-planned">PLANNED</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Firewall Policy</div>
+          <table class="data-table">
+            <thead><tr><th>Direction</th><th>Action</th><th>Ports</th><th>Reason</th></tr></thead>
+            <tbody>
+              <tr><td>LAN → WAN</td><td style="color:var(--green)">ALLOW</td><td>Any</td><td>Users need internet</td></tr>
+              <tr><td>LAN → DMZ</td><td style="color:var(--yellow)">LIMITED</td><td>80, 443, 22</td><td>Admin access only</td></tr>
+              <tr><td>DMZ → WAN</td><td style="color:var(--yellow)">LIMITED</td><td>80, 443, 53</td><td>Updates + DNS only</td></tr>
+              <tr><td>DMZ → LAN</td><td style="color:var(--red)">BLOCK</td><td>Any</td><td>Compromised server can't pivot</td></tr>
+              <tr><td>WAN → LAN</td><td style="color:var(--red)">BLOCK</td><td>Any</td><td>No unsolicited inbound</td></tr>
+              <tr><td>WAN → DMZ</td><td style="color:var(--red)">BLOCK</td><td>Any</td><td>No unsolicited inbound</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Common Issues &amp; Solutions</div>
+          <div class="issue-list">
+            <div class="issue-card" id="i5a">
+              <div class="issue-head" onclick="toggleIssue('i5a')"><span>⚠</span><span class="issue-title">Rules applied but traffic still blocked/allowed unexpectedly</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Cause</div><p class="itext">pfSense evaluates rules top-to-bottom and stops at the first match. Rule order matters — more specific rules must go above general ones.</p>
+                <div class="ilbl">Fix</div><p class="itext">Use Diagnostics → Packet Capture in pfSense to see what traffic is hitting each interface. Use Diagnostics → States to see what connection states exist. Re-order rules so specific rules appear above broad ones.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="phase-item">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">06</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
-          <div class="phase-title">Network Analysis — Nmap & Wireshark</div>
-          <div class="phase-badge badge-planned">PLANNED</div>
+    <div class="phase-card planned" id="p6">
+      <div class="phase-head" onclick="togglePhase('p6')">
+        <div class="phase-num">06</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Network Analysis — Nmap &amp; Wireshark</div>
+          <div class="phase-short">Perform reconnaissance and capture traffic for deep analysis</div>
+          <div class="phase-tools-row"><span class="ptag">Nmap</span><span class="ptag">Wireshark</span><span class="ptag">tcpdump</span><span class="ptag">Netcat</span></div>
         </div>
-        <p class="phase-desc">Perform network reconnaissance from Kali. Run SYN scans, service detection, OS fingerprinting. Capture and analyze traffic with Wireshark and tcpdump.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">Nmap</span><span class="tool-tag">Wireshark</span><span class="tool-tag">tcpdump</span>
+        <div class="phase-right"><span class="pbadge pb-planned">PLANNED</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Key Nmap Scans</div>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># Host discovery</span>
+nmap -sn 10.0.2.0/24
+
+<span class="cm"># SYN scan — fast, stealthy</span>
+nmap -sS -T4 10.0.2.10
+
+<span class="cm"># Full scan — all ports + service versions + OS detection</span>
+nmap -sS -sV -O -p- --open 10.0.2.10 \
+  -oN reports/nmap-full.txt
+
+<span class="cm"># Vulnerability scan via NSE scripts</span>
+nmap --script vuln 10.0.2.10 \
+  -oN reports/nmap-vuln.txt
+
+<span class="cm"># Capture on host bridge while scanning</span>
+sudo tcpdump -i virbr-dmz -w captures/scan.pcap</div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Common Issues &amp; Solutions</div>
+          <div class="issue-list">
+            <div class="issue-card" id="i6a">
+              <div class="issue-head" onclick="toggleIssue('i6a')"><span>⚠</span><span class="issue-title">Nmap shows all ports filtered — nothing visible</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Cause</div><p class="itext">pfSense firewall is blocking the scan. LAN→DMZ rules haven't been configured yet.</p>
+                <div class="ilbl">Fix</div><p class="itext">Complete Phase 5 first and add a LAN→DMZ allow rule for scanning. Or capture on the host bridge (virbr-dmz) with tcpdump to confirm packets are arriving regardless of firewall rules.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="phase-item">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">07</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
+    <div class="phase-card planned" id="p7">
+      <div class="phase-head" onclick="togglePhase('p7')">
+        <div class="phase-num">07</div>
+        <div class="phase-title-wrap">
           <div class="phase-title">Suricata IDS/IPS Deployment</div>
-          <div class="phase-badge badge-planned">PLANNED</div>
+          <div class="phase-short">Install and tune intrusion detection with Emerging Threats rule sets</div>
+          <div class="phase-tools-row"><span class="ptag">Suricata</span><span class="ptag">Emerging Threats</span><span class="ptag">eve.json</span><span class="ptag">suricata-update</span></div>
         </div>
-        <p class="phase-desc">Install and configure Suricata on pfSense via package manager. Enable Emerging Threats rule sets. Validate alert generation against simulated attacks.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">Suricata</span><span class="tool-tag">Emerging Threats</span><span class="tool-tag">eve.json</span>
+        <div class="phase-right"><span class="pbadge pb-planned">PLANNED</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Installation</div>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># Install on Ubuntu Server</span>
+sudo add-apt-repository ppa:oisf/suricata-stable
+sudo apt install -y suricata suricata-update
+
+<span class="cm"># Update and enable Emerging Threats rules</span>
+sudo suricata-update update-sources
+sudo suricata-update enable-source et/open
+sudo suricata-update
+
+<span class="cm"># Watch alerts live</span>
+sudo tail -f /var/log/suricata/fast.log
+
+<span class="cm"># Query JSON alerts</span>
+sudo jq 'select(.event_type=="alert")' \
+  /var/log/suricata/eve.json</div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Common Issues &amp; Solutions</div>
+          <div class="issue-list">
+            <div class="issue-card" id="i7a">
+              <div class="issue-head" onclick="toggleIssue('i7a')"><span>⚠</span><span class="issue-title">Suricata running but no alerts during Nmap scan</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Cause</div><p class="itext">Suricata is monitoring the wrong interface, or HOME_NET is not set to your lab subnets.</p>
+                <div class="ilbl">Fix</div>
+                <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+sudo nano /etc/suricata/suricata.yaml
+<span class="cm"># Set HOME_NET: "[10.0.0.0/8,192.168.0.0/16]"</span>
+<span class="cm"># Set interface to your VM's eth0 or ens3</span>
+sudo systemctl restart suricata</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="phase-item">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">08</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
+    <div class="phase-card planned" id="p8">
+      <div class="phase-head" onclick="togglePhase('p8')">
+        <div class="phase-num">08</div>
+        <div class="phase-title-wrap">
           <div class="phase-title">WireGuard VPN Configuration</div>
-          <div class="phase-badge badge-planned">PLANNED</div>
+          <div class="phase-short">Secure remote access into the lab via encrypted tunnel</div>
+          <div class="phase-tools-row"><span class="ptag">WireGuard</span><span class="ptag">UDP 51820</span><span class="ptag">PKI</span><span class="ptag">ChaCha20</span></div>
         </div>
-        <p class="phase-desc">Configure WireGuard VPN on pfSense for secure remote administration. Generate key pairs, configure peer, test encrypted tunnel from Android client.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">WireGuard</span><span class="tool-tag">PKI</span><span class="tool-tag">UDP 51820</span>
+        <div class="phase-right"><span class="pbadge pb-planned">PLANNED</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Configuration</div>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># pfSense web UI → VPN → WireGuard → Tunnels → Add</span>
+<span class="cm"># Listen Port: 51820</span>
+<span class="cm"># Tunnel Address: 10.10.0.1/24</span>
+
+<span class="cm"># Client config (Android WireGuard app):</span>
+<span class="cm"># Address = 10.10.0.2/24</span>
+<span class="cm"># DNS = 10.0.1.1</span>
+<span class="cm"># Endpoint = [WAN IP]:51820</span>
+<span class="cm"># AllowedIPs = 10.0.1.0/24, 10.0.2.0/24</span></div>
+        </div>
+        <div class="phase-section">
+          <div class="ps-title">Common Issues &amp; Solutions</div>
+          <div class="issue-list">
+            <div class="issue-card" id="i8a">
+              <div class="issue-head" onclick="toggleIssue('i8a')"><span>⚠</span><span class="issue-title">VPN connects but can't reach LAN/DMZ hosts</span><span class="issue-tog">▼</span></div>
+              <div class="issue-body">
+                <div class="ilbl">Cause</div><p class="itext">pfSense firewall has no rule allowing VPN tunnel traffic into LAN/DMZ segments.</p>
+                <div class="ilbl">Fix</div><p class="itext">In pfSense → Firewall → Rules → WireGuard interface → Add rule allowing traffic from VPN subnet (10.10.0.0/24) to LAN and DMZ.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="phase-item">
-      <div class="phase-line"></div>
-      <div class="phase-num-col"><div class="phase-circle">09</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
+    <div class="phase-card planned" id="p9">
+      <div class="phase-head" onclick="togglePhase('p9')">
+        <div class="phase-num">09</div>
+        <div class="phase-title-wrap">
           <div class="phase-title">Vulnerability Assessment</div>
-          <div class="phase-badge badge-planned">PLANNED</div>
+          <div class="phase-short">Scan, identify, score, and report vulnerabilities on target systems</div>
+          <div class="phase-tools-row"><span class="ptag">OpenVAS</span><span class="ptag">Greenbone</span><span class="ptag">CVSS</span><span class="ptag">Metasploit</span><span class="ptag">Hydra</span></div>
         </div>
-        <p class="phase-desc">Run OpenVAS/Greenbone vulnerability scanner against Ubuntu target. Analyze findings with CVSS scoring. Generate formal security assessment report.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">OpenVAS</span><span class="tool-tag">Greenbone</span><span class="tool-tag">CVSS</span><span class="tool-tag">Metasploit</span>
+        <div class="phase-right"><span class="pbadge pb-planned">PLANNED</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">Assessment Workflow</div>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># Install Greenbone on Kali</span>
+sudo apt install -y gvm
+sudo gvm-setup && sudo gvm-start
+
+<span class="cm"># Web UI at https://127.0.0.1:9392</span>
+<span class="cm"># Create scan target: 10.0.2.10</span>
+<span class="cm"># Run Full and Fast scan</span>
+
+<span class="cm"># SSH brute force (5 attempts to trigger IDS)</span>
+hydra -l admin -P /usr/share/wordlists/rockyou.txt \
+  -t 4 -f 10.0.2.10 ssh
+
+<span class="cm"># Run IR drill script</span>
+bash scripts/incident-response-drill.sh 10.0.2.10</div>
         </div>
       </div>
     </div>
 
-    <div class="phase-item">
-      <div class="phase-num-col"><div class="phase-circle">10</div></div>
-      <div class="phase-content" onclick="togglePhase(this)">
-        <div class="phase-header">
-          <div class="phase-title">Incident Response Simulation</div>
-          <div class="phase-badge badge-planned">PLANNED</div>
+    <div class="phase-card planned" id="p10">
+      <div class="phase-head" onclick="togglePhase('p10')">
+        <div class="phase-num">10</div>
+        <div class="phase-title-wrap">
+          <div class="phase-title">Incident Response Simulation &amp; Final Report</div>
+          <div class="phase-short">Full IR drill with timeline correlation and capstone security report</div>
+          <div class="phase-tools-row"><span class="ptag">MITRE ATT&amp;CK</span><span class="ptag">IR Runbook</span><span class="ptag">Log Correlation</span><span class="ptag">CVSS</span></div>
         </div>
-        <p class="phase-desc">Execute a full IR drill using the incident-response-drill.sh script. Correlate attack timestamps with Suricata alerts and firewall logs. Document the IR runbook and write the final capstone report.</p>
-        <div class="phase-tools">
-          <span class="tool-tag">MITRE ATT&CK</span><span class="tool-tag">Hydra</span><span class="tool-tag">IR Runbook</span>
+        <div class="phase-right"><span class="pbadge pb-planned">PLANNED</span><span class="phase-arrow">▼</span></div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-section">
+          <div class="ps-title">MITRE ATT&amp;CK Mapping</div>
+          <table class="data-table">
+            <thead><tr><th>Stage</th><th>Technique</th><th>ID</th><th>Tool</th></tr></thead>
+            <tbody>
+              <tr><td>Reconnaissance</td><td>Network Service Discovery</td><td>T1046</td><td>Nmap</td></tr>
+              <tr><td>Initial Access</td><td>Exploit Public-Facing App</td><td>T1190</td><td>Metasploit</td></tr>
+              <tr><td>Credential Access</td><td>Brute Force</td><td>T1110</td><td>Hydra</td></tr>
+              <tr><td>Execution</td><td>Command &amp; Scripting Interpreter</td><td>T1059</td><td>Meterpreter</td></tr>
+              <tr><td>Defense Evasion</td><td>Impair Defenses</td><td>T1562</td><td>Manual</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ── TOOLS ─────────────────────────────────────── -->
-<section id="tools">
-  <div class="section-tag">04 — Stack</div>
-  <h2 class="section-title">Tools & <span>Technologies</span></h2>
-  <p class="section-sub">Every tool used across the project, organized by category.</p>
-  <div class="tools-grid reveal">
-    <div class="tool-card"><div class="tool-icon">🛡️</div><div class="tool-info"><h4>pfSense CE</h4><p>Open-source firewall and router. WAN/LAN/DMZ interfaces, DHCP, DNS, IDS package host.</p><div class="tool-cat">Firewall / Router</div></div></div>
-    <div class="tool-card"><div class="tool-icon">💀</div><div class="tool-info"><h4>Kali Linux</h4><p>Debian-based penetration testing distribution. Primary attacker machine on LAN segment.</p><div class="tool-cat">Attacker OS</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🖥️</div><div class="tool-info"><h4>Ubuntu Server 22.04</h4><p>Target machine on DMZ segment. Runs Apache, SSH, and Suricata IDS for monitoring.</p><div class="tool-cat">Target OS</div></div></div>
-    <div class="tool-card"><div class="tool-icon">⚡</div><div class="tool-info"><h4>KVM + QEMU</h4><p>Kernel-based Virtual Machine. Near-native performance hypervisor running all lab VMs.</p><div class="tool-cat">Virtualization</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🔍</div><div class="tool-info"><h4>Suricata IDS/IPS</h4><p>Network intrusion detection and prevention. Emerging Threats rules, JSON alert logging via eve.json.</p><div class="tool-cat">IDS / IPS</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🗺️</div><div class="tool-info"><h4>Nmap</h4><p>Network scanner. SYN scans, service detection (-sV), OS fingerprinting (-O), NSE scripts.</p><div class="tool-cat">Recon</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🦈</div><div class="tool-info"><h4>Wireshark</h4><p>Packet capture and protocol analysis. Used with tcpdump on KVM bridge interfaces.</p><div class="tool-cat">Traffic Analysis</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🔒</div><div class="tool-info"><h4>WireGuard VPN</h4><p>Modern VPN protocol. ChaCha20-Poly1305 encryption, UDP 51820, configured on pfSense.</p><div class="tool-cat">VPN</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🐛</div><div class="tool-info"><h4>Metasploit</h4><p>Exploitation framework. Used for controlled attack simulations against target VMs.</p><div class="tool-cat">Exploitation</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🔑</div><div class="tool-info"><h4>Hydra</h4><p>Network login brute-forcer. SSH brute force simulation to trigger IDS alerts.</p><div class="tool-cat">Brute Force</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🌿</div><div class="tool-info"><h4>OpenVAS / Greenbone</h4><p>Vulnerability scanner. CVSS-scored findings, formal security assessment report output.</p><div class="tool-cat">Vuln Scanning</div></div></div>
-    <div class="tool-card"><div class="tool-icon">🐙</div><div class="tool-info"><h4>Git + GitHub CLI</h4><p>Version control and portfolio hosting. All lab documentation committed and pushed via Termux on Android.</p><div class="tool-cat">DevOps</div></div></div>
-  </div>
-</section>
-
-<!-- ── DIAGRAMS ───────────────────────────────────── -->
-<section id="diagrams">
-  <div class="section-tag">05 — Visuals</div>
-  <h2 class="section-title">Lab <span>Diagrams</span></h2>
-  <p class="section-sub">Professional network diagrams created for the portfolio. All diagrams are in the <code style="font-family:var(--mono);color:var(--cyan)">diagrams/</code> folder of the repo.</p>
-  <div class="diagrams-grid reveal">
-    <div class="diagram-card">
-      <div class="diagram-preview">
-        <pre>  [Internet/WAN]
-       │
-  [pfSense]
-   /       \
-[LAN]     [DMZ]
-Kali      Ubuntu</pre>
-      </div>
-      <div class="diagram-label">
-        <h4>Network Topology</h4>
-        <p>Full lab network with all VMs, segments, and IP addresses.</p>
-        <span>diagrams/01-network-topology.png</span>
-      </div>
-    </div>
-    <div class="diagram-card">
-      <div class="diagram-preview">
-        <pre>  em0 → WAN  192.168.100.2
-  em1 → LAN  10.0.1.1/24
-  em2 → DMZ  10.0.2.1/24
-  [pfSense Services]
-  DHCP · DNS · NAT · VPN</pre>
-      </div>
-      <div class="diagram-label">
-        <h4>pfSense Interfaces</h4>
-        <p>Interface assignments, IP addresses, and services running.</p>
-        <span>diagrams/03-pfsense-interfaces.png</span>
-      </div>
-    </div>
-    <div class="diagram-card">
-      <div class="diagram-preview">
-        <pre>  LAN→WAN  [ALLOW] ANY
-  LAN→DMZ  [ALLOW] 80,443
-  DMZ→LAN  [BLOCK] ANY
-  WAN→LAN  [BLOCK] ANY
-  *        [BLOCK] DEFAULT</pre>
-      </div>
-      <div class="diagram-label">
-        <h4>Firewall Rules</h4>
-        <p>Traffic policy table for all three network interfaces.</p>
-        <span>diagrams/05-firewall-rules.png</span>
-      </div>
-    </div>
-    <div class="diagram-card">
-      <div class="diagram-preview">
-        <pre>  [Kali] ──attack──→ [Ubuntu]
-              │
-         [Suricata]
-              │
-         ⚠ ALERT
-     fast.log / eve.json</pre>
-      </div>
-      <div class="diagram-label">
-        <h4>Suricata IDS/IPS</h4>
-        <p>IDS placement, alert flow, and sample log output.</p>
-        <span>diagrams/07-suricata-ids.png</span>
-      </div>
-    </div>
-    <div class="diagram-card">
-      <div class="diagram-preview">
-        <pre>  [Android] ══🔒══→ [pfSense]
-                    VPN 10.10.0.1
-                    /        \
-                [LAN]       [DMZ]
-            10.0.1.0/24  10.0.2.0/24</pre>
-      </div>
-      <div class="diagram-label">
-        <h4>WireGuard VPN Tunnel</h4>
-        <p>Encrypted tunnel setup and route advertisement.</p>
-        <span>diagrams/08-vpn-tunnel.png</span>
-      </div>
-    </div>
-    <div class="diagram-card">
-      <div class="diagram-preview">
-        <pre>  09:00 Recon → 09:05 Scan
-  09:12 Exploit → 09:18 BF
-  09:24 ⚠DETECT → 09:31 IR
-  [MITRE ATT&CK Mapped]</pre>
-      </div>
-      <div class="diagram-label">
-        <h4>Incident Response Timeline</h4>
-        <p>Attack timeline correlated with IDS alerts and MITRE ATT&CK.</p>
-        <span>diagrams/10-incident-response.png</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SKILLS ────────────────────────────────────── -->
-<section id="skills">
-  <div class="section-tag">06 — Skills</div>
-  <h2 class="section-title">Skills <span>Progress</span></h2>
-  <p class="section-sub">Skill levels being developed through this lab project.</p>
-  <div class="skills-grid reveal">
-    <div class="skill-card"><div class="skill-name">Network Architecture <span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
-    <div class="skill-card"><div class="skill-name">Linux Administration <span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
-    <div class="skill-card"><div class="skill-name">Firewall Configuration <span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-w="60"></div></div></div>
-    <div class="skill-card"><div class="skill-name">Penetration Testing <span class="skill-pct">50%</span></div><div class="skill-bar"><div class="skill-fill" data-w="50"></div></div></div>
-    <div class="skill-card"><div class="skill-name">Intrusion Detection <span class="skill-pct">45%</span></div><div class="skill-bar"><div class="skill-fill" data-w="45"></div></div></div>
-    <div class="skill-card"><div class="skill-name">VPN & Cryptography <span class="skill-pct">40%</span></div><div class="skill-bar"><div class="skill-fill" data-w="40"></div></div></div>
-    <div class="skill-card"><div class="skill-name">Incident Response <span class="skill-pct">35%</span></div><div class="skill-bar"><div class="skill-fill" data-w="35"></div></div></div>
-    <div class="skill-card"><div class="skill-name">Bash Scripting <span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" data-w="65"></div></div></div>
-  </div>
-</section>
-
-<!-- ── GITHUB SETUP ───────────────────────────────── -->
-<section id="github">
-  <div class="section-tag">07 — GitHub</div>
-  <h2 class="section-title">GitHub <span>Setup</span></h2>
-  <p class="section-sub">How this portfolio was set up and pushed to GitHub entirely from an Android phone using Termux.</p>
-
-  <div class="github-timeline reveal">
-    <div class="gh-step">
-      <div class="gh-dot">1</div>
-      <div class="gh-body">
-        <h3>Installed Termux on Android</h3>
-        <p>Installed Termux from F-Droid (not Play Store — outdated version). Granted storage permissions to access phone Downloads folder.</p>
-        <div class="code-block">
-          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-          termux-setup-storage<br/>
-          pkg update && pkg upgrade -y
-        </div>
-      </div>
-    </div>
-    <div class="gh-step">
-      <div class="gh-dot">2</div>
-      <div class="gh-body">
-        <h3>Installed Git & GitHub CLI</h3>
-        <p>All tools installed directly inside Termux on Android — no laptop needed.</p>
-        <div class="code-block">
-          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-          pkg install -y git gh openssh nano
-        </div>
-      </div>
-    </div>
-    <div class="gh-step">
-      <div class="gh-dot">3</div>
-      <div class="gh-body">
-        <h3>Configured Git Identity</h3>
-        <p>Set name, email, and default branch. Used GitHub's no-reply email for privacy.</p>
-        <div class="code-block">
-          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-          git config --global user.name "YOUR USERNAME"<br/>
-          git config --global user.email "your@email.com"<br/>
-          git config --global init.defaultBranch main
-        </div>
-      </div>
-    </div>
-    <div class="gh-step">
-      <div class="gh-dot">4</div>
-      <div class="gh-body">
-        <h3>Authenticated GitHub CLI</h3>
-        <p>Used browser-based OAuth flow. Opened github.com/login/device in Chrome, pasted the one-time code shown in Termux.</p>
-        <div class="code-block">
-          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-          gh auth login<br/>
-          <span style="color:var(--dim)"># Choose: GitHub.com → HTTPS → Login with browser</span>
-        </div>
-      </div>
-    </div>
-    <div class="gh-step">
-      <div class="gh-dot">5</div>
-      <div class="gh-body">
-        <h3>Pushed Portfolio Repo</h3>
-        <p>Extracted the portfolio zip, initialized git, and pushed to GitHub as a private repo.</p>
-        <div class="code-block">
-          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-          git init && git add .<br/>
-          git commit -m "Initial commit: portfolio structure"<br/>
-          gh repo create cybersec-lab-portfolio \<br/>
-          &nbsp;&nbsp;--private --source=. --remote=origin --push
-        </div>
-      </div>
-    </div>
-    <div class="gh-step">
-      <div class="gh-dot">6</div>
-      <div class="gh-body">
-        <h3>Created Profile README</h3>
-        <p>Created the special username/username repo that displays on the GitHub profile page. Written in nano directly in Termux.</p>
-        <div class="code-block">
-          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-          mkdir ~/Aayush955 && cd ~/Aayush955<br/>
-          git init && nano README.md<br/>
-          gh repo create Aayush955 --public \<br/>
-          &nbsp;&nbsp;--source=. --remote=origin --push
-        </div>
-      </div>
-    </div>
-    <div class="gh-step">
-      <div class="gh-dot">★</div>
-      <div class="gh-body">
-        <h3>Weekly Commit Routine</h3>
-        <p>Every lab session — 4 commands to save and push all changes to GitHub.</p>
-        <div class="code-block">
-          <button class="copy-btn" onclick="copyCode(this)">COPY</button>
-          cd ~/cybersec-lab-portfolio<br/>
-          git add .<br/>
-          git commit -m "[Phase N] What I did today"<br/>
-          git push origin main
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CONTACT ────────────────────────────────────── -->
-<div id="contact">
-  <div class="contact-inner">
-    <div class="section-tag" style="justify-content:center">08 — Connect</div>
-    <h2 class="section-title" style="font-size:clamp(28px,5vw,48px)">Let's <span>Connect</span></h2>
-    <p style="color:var(--text);font-size:16px;margin-top:12px">Open to cybersecurity opportunities, collaborations, and feedback on this project.</p>
-    <div class="contact-links">
-      <a href="https://github.com/Aayush955" target="_blank" class="contact-link">⬡ GitHub</a>
-      <a href="https://github.com/Aayush955/cybersec-lab-portfolio" target="_blank" class="contact-link">🛡️ Portfolio Repo</a>
-    </div>
-    <p style="margin-top:40px;font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:2px">"Security is not a product, but a process." — Bruce Schneier</p>
   </div>
 </div>
 
-<footer>
-  AAYUSH955 · CYBERSECURITY PORTFOLIO · BUILT WITH TERMUX ON ANDROID · 2024
-</footer>
+<!-- TOOLS -->
+<div class="wrap" id="tools" style="padding-top:0">
+  <div class="section-tag">04 — Tech Stack</div>
+  <h2 class="section-h">Tools &amp; <span>Technologies</span></h2>
+  <p class="section-p">Every tool used across the project, organized by category.</p>
+  <div class="tools-tabs">
+    <button class="tool-tab active" onclick="switchTab(this,'t-all','.tool-tab','.tool-panel')">All</button>
+    <button class="tool-tab" onclick="switchTab(this,'t-infra','.tool-tab','.tool-panel')">Infrastructure</button>
+    <button class="tool-tab" onclick="switchTab(this,'t-attack','.tool-tab','.tool-panel')">Attack</button>
+    <button class="tool-tab" onclick="switchTab(this,'t-defend','.tool-tab','.tool-panel')">Defense</button>
+  </div>
+  <div class="tool-panel active" id="t-all">
+    <div class="tools-grid reveal">
+      <div class="card tool-card"><div class="tool-icon">⚡</div><div><div class="tool-name">KVM + QEMU</div><p class="tool-desc">Type-1 hypervisor built into Linux kernel. Near-native VM performance via hardware virtualization extensions.</p><div class="tool-cat">Infrastructure</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🛡️</div><div><div class="tool-name">pfSense CE 2.7</div><p class="tool-desc">FreeBSD-based firewall and router. Handles routing, DHCP, DNS, NAT, IDS packages, and VPN.</p><div class="tool-cat">Firewall</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">💀</div><div><div class="tool-name">Kali Linux 2024</div><p class="tool-desc">Debian-based penetration testing distro. Attacker machine on LAN segment. 600+ security tools included.</p><div class="tool-cat">Attacker OS</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🖥️</div><div><div class="tool-name">Ubuntu Server 22.04</div><p class="tool-desc">Target machine in DMZ. Runs Apache2, SSH, vsftpd. Hosts Suricata IDS for monitoring.</p><div class="tool-cat">Target OS</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🔍</div><div><div class="tool-name">Suricata IDS/IPS</div><p class="tool-desc">Multi-threaded network IDS/IPS. Emerging Threats rules. JSON alerts via eve.json.</p><div class="tool-cat">Defense</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🗺️</div><div><div class="tool-name">Nmap 7.94</div><p class="tool-desc">Network mapper. SYN scans, OS detection, service versions, NSE vulnerability scripts.</p><div class="tool-cat">Recon</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🦈</div><div><div class="tool-name">Wireshark + tcpdump</div><p class="tool-desc">Packet capture and protocol analysis. tcpdump on KVM bridge interfaces gives full traffic visibility.</p><div class="tool-cat">Analysis</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🔒</div><div><div class="tool-name">WireGuard VPN</div><p class="tool-desc">Modern VPN protocol. ChaCha20-Poly1305 encryption, UDP 51820. Configured on pfSense.</p><div class="tool-cat">VPN</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🐛</div><div><div class="tool-name">Metasploit Framework</div><p class="tool-desc">Exploitation framework for controlled attack simulations against target VMs.</p><div class="tool-cat">Attack</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🔑</div><div><div class="tool-name">Hydra</div><p class="tool-desc">Network login brute-forcer. SSH brute force simulation to validate IDS alert triggering.</p><div class="tool-cat">Attack</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🌿</div><div><div class="tool-name">OpenVAS / Greenbone</div><p class="tool-desc">Vulnerability scanner. CVSS-scored findings. Formal security assessment report output.</p><div class="tool-cat">Scanning</div></div></div>
+      <div class="card tool-card"><div class="tool-icon">🐙</div><div><div class="tool-name">Git + GitHub CLI</div><p class="tool-desc">Version control and portfolio hosting. All docs committed from Termux on Android.</p><div class="tool-cat">DevOps</div></div></div>
+    </div>
+  </div>
+  <div class="tool-panel" id="t-infra">
+    <div class="tools-grid"><div class="card tool-card"><div class="tool-icon">⚡</div><div><div class="tool-name">KVM + QEMU</div><p class="tool-desc">Type-1 hypervisor built into Linux kernel. Near-native VM performance.</p><div class="tool-cat">Infrastructure</div></div></div><div class="card tool-card"><div class="tool-icon">🛡️</div><div><div class="tool-name">pfSense CE 2.7</div><p class="tool-desc">FreeBSD-based firewall and router managing all three network segments.</p><div class="tool-cat">Firewall</div></div></div><div class="card tool-card"><div class="tool-icon">🐙</div><div><div class="tool-name">Git + GitHub CLI</div><p class="tool-desc">Version control and portfolio hosting. Committed from Termux on Android.</p><div class="tool-cat">DevOps</div></div></div></div>
+  </div>
+  <div class="tool-panel" id="t-attack">
+    <div class="tools-grid"><div class="card tool-card"><div class="tool-icon">💀</div><div><div class="tool-name">Kali Linux 2024</div><p class="tool-desc">Penetration testing OS with 600+ security tools preinstalled.</p><div class="tool-cat">Attacker OS</div></div></div><div class="card tool-card"><div class="tool-icon">🗺️</div><div><div class="tool-name">Nmap 7.94</div><p class="tool-desc">Network scanner — SYN scans, OS detection, service enumeration, NSE scripts.</p><div class="tool-cat">Recon</div></div></div><div class="card tool-card"><div class="tool-icon">🐛</div><div><div class="tool-name">Metasploit</div><p class="tool-desc">Exploitation framework for controlled attack simulation.</p><div class="tool-cat">Exploitation</div></div></div><div class="card tool-card"><div class="tool-icon">🔑</div><div><div class="tool-name">Hydra</div><p class="tool-desc">Brute-force tool used to simulate SSH credential attacks.</p><div class="tool-cat">Attack</div></div></div></div>
+  </div>
+  <div class="tool-panel" id="t-defend">
+    <div class="tools-grid"><div class="card tool-card"><div class="tool-icon">🔍</div><div><div class="tool-name">Suricata IDS/IPS</div><p class="tool-desc">Multi-threaded IDS/IPS with Emerging Threats rule sets and JSON logging.</p><div class="tool-cat">Defense</div></div></div><div class="card tool-card"><div class="tool-icon">🔒</div><div><div class="tool-name">WireGuard VPN</div><p class="tool-desc">Secure remote access via encrypted UDP tunnel on pfSense.</p><div class="tool-cat">VPN</div></div></div><div class="card tool-card"><div class="tool-icon">🌿</div><div><div class="tool-name">OpenVAS / Greenbone</div><p class="tool-desc">Vulnerability scanner with CVSS scoring for formal security reports.</p><div class="tool-cat">Scanning</div></div></div></div>
+  </div>
+</div>
 
-</div><!-- end .site -->
+<!-- DIAGRAMS -->
+<div class="wrap" id="diagrams" style="padding-top:0">
+  <div class="section-tag">05 — Visuals</div>
+  <h2 class="section-h">Lab <span>Diagrams</span></h2>
+  <p class="section-p">Professional diagrams for each phase. All files are in the <code style="font-family:var(--mono);color:var(--cyan);font-size:11px">diagrams/</code> folder.</p>
+  <div class="diagrams-grid reveal">
+    <div class="card diag-card"><div class="diag-preview"><pre>  [Internet/WAN]
+       | em0
+  [pfSense]
+   em1/   \em2
+ [LAN]   [DMZ]
+ Kali    Ubuntu</pre><div class="diag-overlay"><div class="diag-btn">VIEW</div></div></div><div class="diag-info"><div class="diag-title">Network Topology</div><p class="diag-desc">Full lab network — VMs, segments, IPs, and interfaces.</p><span class="diag-file">diagrams/01-network-topology.png</span></div></div>
+    <div class="card diag-card"><div class="diag-preview"><pre>  em0 → WAN 192.168.100.2
+  em1 → LAN 10.0.1.1/24
+  em2 → DMZ 10.0.2.1/24
+  ─────────────────────
+  DHCP · DNS · Suricata
+  NAT  · WireGuard VPN</pre><div class="diag-overlay"><div class="diag-btn">VIEW</div></div></div><div class="diag-info"><div class="diag-title">pfSense Interfaces</div><p class="diag-desc">Interface assignments, IPs, and running services.</p><span class="diag-file">diagrams/03-pfsense-interfaces.png</span></div></div>
+    <div class="card diag-card"><div class="diag-preview"><pre>  LAN→WAN ✔ ALLOW ANY
+  LAN→DMZ ✔ ALLOW 80,443
+  DMZ→LAN ✖ BLOCK ANY
+  WAN→ANY ✖ BLOCK ANY
+  *       ✖ DENY DEFAULT</pre><div class="diag-overlay"><div class="diag-btn">VIEW</div></div></div><div class="diag-info"><div class="diag-title">Firewall Rules</div><p class="diag-desc">Traffic policy table for all three interfaces.</p><span class="diag-file">diagrams/05-firewall-rules.png</span></div></div>
+    <div class="card diag-card"><div class="diag-preview"><pre>  [Kali] ─scan─→ [Ubuntu]
+             |
+        [Suricata]
+             |
+         ⚠ ALERT
+    /var/log/suricata/</pre><div class="diag-overlay"><div class="diag-btn">VIEW</div></div></div><div class="diag-info"><div class="diag-title">Suricata IDS/IPS</div><p class="diag-desc">IDS placement, detection flow, and alert log output.</p><span class="diag-file">diagrams/07-suricata-ids.png</span></div></div>
+    <div class="card diag-card"><div class="diag-preview"><pre>  [Phone] ══🔒══ [pfSense]
+              VPN 10.10.0.1
+             /           \
+          [LAN]          [DMZ]
+       10.0.1.0/24   10.0.2.0/24</pre><div class="diag-overlay"><div class="diag-btn">VIEW</div></div></div><div class="diag-info"><div class="diag-title">WireGuard VPN</div><p class="diag-desc">Encrypted tunnel, route advertisement, and client config.</p><span class="diag-file">diagrams/08-vpn-tunnel.png</span></div></div>
+    <div class="card diag-card"><div class="diag-preview"><pre>  09:00 Recon
+  09:05 Port Scan  ⚠ IDS
+  09:12 Exploit    ⚠ IDS
+  09:24 BruteForce ⚠ IDS
+  09:31 CONTAINED ✔
+  [MITRE ATT&CK Mapped]</pre><div class="diag-overlay"><div class="diag-btn">VIEW</div></div></div><div class="diag-info"><div class="diag-title">Incident Response Timeline</div><p class="diag-desc">Attack timeline correlated with IDS alerts and MITRE ATT&CK.</p><span class="diag-file">diagrams/10-incident-response.png</span></div></div>
+  </div>
+</div>
 
+<!-- GITHUB SETUP -->
+<div class="wrap" id="github" style="padding-top:0">
+  <div class="section-tag">06 — GitHub</div>
+  <h2 class="section-h">GitHub <span>Setup Guide</span></h2>
+  <p class="section-p">Two complete paths — standard Linux/Mac and the Android Termux method used to build this portfolio.</p>
+  <div class="gh-tabs">
+    <button class="gh-tab active" onclick="switchTab(this,'gh-std','.gh-tab','.gh-panel')">💻 Standard — Linux / Mac</button>
+    <button class="gh-tab" onclick="switchTab(this,'gh-tmx','.gh-tab','.gh-panel')">📱 Android — Termux</button>
+  </div>
+  <div class="gh-content">
+    <div class="gh-panel active" id="gh-std">
+      <div class="gh-timeline">
+        <div class="gh-step">
+          <div class="gh-dot">1</div>
+          <div class="gh-body"><h3>Install Git</h3><p>Git is the version control system that powers GitHub. Install it on your machine first.</p>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+<span class="cm"># Ubuntu / Debian / Kali</span>
+sudo apt update && sudo apt install -y git
+<span class="cm"># macOS</span>
+brew install git
+git --version</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">2</div>
+          <div class="gh-body"><h3>Configure Git Identity</h3><p>Git attaches your name and email to every commit. Set this once globally.</p>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+git config --global user.name "Your Full Name"
+git config --global user.email "your@email.com"
+git config --global init.defaultBranch main
+git config --global color.ui auto
+git config --global --list</div>
+          <div class="info-box info-warn"><strong>Privacy tip:</strong> GitHub Settings → Emails → enable "Keep my email private" and use the noreply address shown.</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">3</div>
+          <div class="gh-body"><h3>Generate SSH Key</h3><p>SSH keys replace passwords for pushing code. More secure and no typing credentials each time.</p>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+ssh-keygen -t ed25519 -C "your@email.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+<span class="cm"># Copy this entire output and add to GitHub</span>
+cat ~/.ssh/id_ed25519.pub</div>
+          <div class="info-box info-tip"><strong>Then:</strong> GitHub → Settings → SSH and GPG keys → New SSH key → paste the output above.</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">4</div>
+          <div class="gh-body"><h3>Install GitHub CLI</h3>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+  | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] \
+  https://cli.github.com/packages stable main" \
+  | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update && sudo apt install -y gh
+gh auth login</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">5</div>
+          <div class="gh-body"><h3>Create &amp; Push Portfolio Repo</h3>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+mkdir cybersec-lab-portfolio && cd cybersec-lab-portfolio
+git init
+echo "# Cybersecurity Lab Portfolio" > README.md
+git add . && git commit -m "Initial commit"
+gh repo create cybersec-lab-portfolio \
+  --public \
+  --description "Enterprise network security home lab" \
+  --source=. --remote=origin --push</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">6</div>
+          <div class="gh-body"><h3>Create Profile README</h3><p>Create a repo named exactly as your username — GitHub displays its README on your profile page.</p>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+mkdir ~/YOUR-USERNAME && cd ~/YOUR-USERNAME
+git init
+nano README.md
+git add . && git commit -m "Add profile README"
+gh repo create YOUR-USERNAME --public \
+  --source=. --remote=origin --push</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">★</div>
+          <div class="gh-body"><h3>Weekly Commit Routine</h3><p>After every lab session — 4 commands to save your work.</p>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+cd ~/cybersec-lab-portfolio
+git add .
+git commit -m "[Phase N] What you did today"
+git push origin main</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="gh-panel" id="gh-tmx">
+      <div class="info-box info-tip" style="margin-bottom:20px"><strong>This portfolio was built entirely from an Android phone using Termux.</strong> No laptop required for GitHub setup.</div>
+      <div class="gh-timeline">
+        <div class="gh-step">
+          <div class="gh-dot">1</div>
+          <div class="gh-body"><h3>Install Termux from F-Droid</h3>
+          <div class="info-box info-danger"><strong>Do NOT use the Play Store version</strong> — it is outdated and broken. Go to f-droid.org in Chrome → download F-Droid → search Termux inside F-Droid → install.</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">2</div>
+          <div class="gh-body"><h3>Install All Packages</h3>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+pkg update && pkg upgrade -y
+pkg install -y git gh openssh nano
+<span class="cm"># Grant storage access to Downloads folder</span>
+termux-setup-storage</div>
+          <div class="info-box info-warn"><strong>Storage access:</strong> Tap Allow when your phone asks. Your Downloads folder is then at ~/storage/downloads/</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">3</div>
+          <div class="gh-body"><h3>Configure Git</h3>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+git config --global init.defaultBranch main
+git config --global core.editor nano</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">4</div>
+          <div class="gh-body"><h3>Authenticate GitHub CLI</h3>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+gh auth login
+<span class="cm"># Choose: GitHub.com → HTTPS → Login with browser</span>
+<span class="cm"># Copy the code shown → open Chrome</span>
+<span class="cm"># Go to: github.com/login/device</span>
+<span class="cm"># Paste code → Authorize → back to Termux</span></div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">5</div>
+          <div class="gh-body"><h3>Copy Files &amp; Push</h3>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+cp ~/storage/downloads/cybersec-portfolio.zip ~/
+cd ~ && unzip cybersec-portfolio.zip
+cd cybersec-portfolio
+git init && git add .
+git commit -m "Initial commit: portfolio"
+gh repo create cybersec-lab-portfolio \
+  --public --source=. --remote=origin --push</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">6</div>
+          <div class="gh-body"><h3>Enable GitHub Pages</h3>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+gh api --method POST \
+  repos/Aayush955/cybersec-lab-portfolio/pages \
+  -f source[branch]=main \
+  -f source[path]=/</div>
+          <div class="info-box info-tip"><strong>Alternative:</strong> In Chrome → repo → Settings → Pages → Branch: main → Save. Site live at https://aayush955.github.io/cybersec-lab-portfolio</div></div>
+        </div>
+        <div class="gh-step">
+          <div class="gh-dot">★</div>
+          <div class="gh-body"><h3>Shell Shortcuts</h3>
+          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">COPY</button>
+glab      <span class="cm"># cd to lab folder</span>
+gs        <span class="cm"># git status</span>
+ga        <span class="cm"># git add .</span>
+gc "msg"  <span class="cm"># git commit -m "msg"</span>
+gp        <span class="cm"># git push origin main</span>
+gl        <span class="cm"># git log --oneline</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="wrap" id="skills" style="padding-top:0">
+  <div class="section-tag">07 — Progress</div>
+  <h2 class="section-h">Skills <span>Progress</span></h2>
+  <p class="section-p">Skill levels actively developed through this project.</p>
+  <div class="skills-grid reveal">
+    <div class="card sk-card"><div class="sk-name">Network Architecture<span class="sk-pct">75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Linux Administration<span class="sk-pct">70%</span></div><div class="sk-bar"><div class="sk-fill" data-w="70"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Firewall Configuration<span class="sk-pct">60%</span></div><div class="sk-bar"><div class="sk-fill" data-w="60"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Penetration Testing<span class="sk-pct">50%</span></div><div class="sk-bar"><div class="sk-fill" data-w="50"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Intrusion Detection<span class="sk-pct">45%</span></div><div class="sk-bar"><div class="sk-fill" data-w="45"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">VPN &amp; Cryptography<span class="sk-pct">40%</span></div><div class="sk-bar"><div class="sk-fill" data-w="40"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Incident Response<span class="sk-pct">35%</span></div><div class="sk-bar"><div class="sk-fill" data-w="35"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Bash Scripting<span class="sk-pct">65%</span></div><div class="sk-bar"><div class="sk-fill" data-w="65"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Vulnerability Assessment<span class="sk-pct">40%</span></div><div class="sk-bar"><div class="sk-fill" data-w="40"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Documentation<span class="sk-pct">80%</span></div><div class="sk-bar"><div class="sk-fill" data-w="80"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">Git / Version Control<span class="sk-pct">75%</span></div><div class="sk-bar"><div class="sk-fill" data-w="75"></div></div></div>
+    <div class="card sk-card"><div class="sk-name">MITRE ATT&amp;CK<span class="sk-pct">35%</span></div><div class="sk-bar"><div class="sk-fill" data-w="35"></div></div></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="section-tag" style="justify-content:center">08 — Connect</div>
+    <h2 class="section-h" style="font-size:clamp(24px,4vw,42px)">Let's <span>Connect</span></h2>
+    <p style="color:var(--text);font-size:14px;margin-top:10px;line-height:1.8">Open to cybersecurity opportunities, collaborations, and feedback. Currently building toward CompTIA Security+ and CEH certifications.</p>
+    <div class="contact-links">
+      <a href="https://github.com/Aayush955" target="_blank" class="contact-link">⬡ GitHub Profile</a>
+      <a href="https://github.com/Aayush955/cybersec-lab-portfolio" target="_blank" class="contact-link">🛡️ Portfolio Repo</a>
+    </div>
+    <p style="margin-top:36px;font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:2px">"The only truly secure system is one that is powered off." — Gene Spafford</p>
+  </div>
+</div>
+<footer>HOME SECURITY LAB · AAYUSH955 · BUILT WITH TERMUX ON ANDROID · 2024</footer>
+
+</div>
 <script>
-// ── Phase toggle ─────────────────────────────────
-function togglePhase(el) {
-  const details = el.querySelector('.phase-details');
-  if (!details) return;
-  details.classList.toggle('open');
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+
+function togglePhase(id){
+  const card=document.getElementById(id);
+  const wasOpen=card.classList.contains('open');
+  document.querySelectorAll('.phase-card.open').forEach(c=>c.classList.remove('open'));
+  if(!wasOpen)card.classList.add('open');
 }
 
-// ── Copy code ────────────────────────────────────
-function copyCode(btn) {
-  const block = btn.parentElement;
-  const text = block.innerText.replace('COPY','').replace('COPIED!','').trim();
-  navigator.clipboard?.writeText(text).then(() => {
-    btn.textContent = 'COPIED!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('copied'); }, 2000);
+function toggleIssue(id){
+  document.getElementById(id).classList.toggle('open');
+}
+
+function switchTab(btn,panelId,tabSel,panelSel){
+  btn.closest('.wrap,div').querySelectorAll(tabSel).forEach(t=>t.classList.remove('active'));
+  btn.closest('.wrap,div').querySelectorAll(panelSel).forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+function copyCode(btn){
+  const block=btn.parentElement;
+  const text=[...block.childNodes].map(n=>{
+    if(n.nodeName==='BR')return'\n';
+    if(n.nodeName==='SPAN'&&n.classList.contains('cm'))return'';
+    return n.textContent||'';
+  }).join('').replace(/\n{3,}/g,'\n\n').trim();
+  navigator.clipboard?.writeText(text).then(()=>{
+    btn.textContent='COPIED!';btn.classList.add('ok');
+    setTimeout(()=>{btn.textContent='COPY';btn.classList.remove('ok');},2000);
   });
 }
 
-// ── Scroll reveal ────────────────────────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
       e.target.classList.add('visible');
-      // Animate skill bars
-      e.target.querySelectorAll('.skill-fill').forEach(bar => {
-        bar.style.width = bar.dataset.w + '%';
-      });
+      e.target.querySelectorAll('.sk-fill').forEach(b=>{b.style.width=b.dataset.w+'%'});
     }
   });
-}, { threshold: 0.1 });
+},{threshold:0.07});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// ── Count-up stats ────────────────────────────────
-function countUp(el, target, duration = 1500) {
-  let start = 0;
-  const step = target / (duration / 16);
-  const timer = setInterval(() => {
-    start += step;
-    if (start >= target) { el.textContent = target; clearInterval(timer); return; }
-    el.textContent = Math.floor(start);
-  }, 16);
+function countUp(el,target){
+  let v=0;const step=target/(1100/16);
+  const t=setInterval(()=>{v+=step;if(v>=target){el.textContent=target;clearInterval(t);return;}el.textContent=Math.floor(v);},16);
 }
-
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('[data-target]').forEach(el => {
-        countUp(el, parseInt(el.dataset.target));
-      });
-      statsObserver.unobserve(e.target);
+const so=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('[data-target]').forEach(el=>countUp(el,parseInt(el.dataset.target)));
+      so.unobserve(e.target);
     }
   });
-}, { threshold: 0.3 });
-statsObserver.observe(document.getElementById('stats'));
+},{threshold:0.2});
+const sb=document.querySelector('.stats-bar');if(sb)so.observe(sb);
 
-// ── Active nav link ───────────────────────────────
-const sections = document.querySelectorAll('section[id], div[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) current = s.id;
-  });
-  navLinks.forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current
-      ? 'var(--green)' : '';
-  });
-}, { passive: true });
+const allS=document.querySelectorAll('[id]');
+const navAs=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  allS.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id});
+  navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+togglePhase('p1');
 </script>
 </body>
 </html>
